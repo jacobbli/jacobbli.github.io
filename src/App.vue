@@ -17,14 +17,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, provide, readonly } from "vue";
 import SideBar from "./components/SideBar.vue";
 import TheNavigation from "./components/TheNavigation.vue";
 import SunIcon from "./components/icons/SunIcon.vue";
 import MoonIcon from "./components/icons/MoonIcon.vue";
 
 const isMobile = ref(screen.width < 768);
-const isDarkMode = ref(false);
+const isDarkMode = ref(true);
 const colorThemeClass = computed(() =>
   isDarkMode.value ? "app__darkMode" : "app__lightMode"
 );
@@ -36,6 +36,8 @@ function toggleColorTheme() {
 onMounted(() => {
   window.onresize = () => (isMobile.value = screen.width < 768);
 });
+
+provide("isDarkMode", readonly(isDarkMode));
 </script>
 
 <style>

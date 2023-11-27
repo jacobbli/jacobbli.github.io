@@ -2,7 +2,13 @@
   <div class="baseListItem__container">
     <slot name="icon"></slot>
     <slot name="label"></slot>
-    <a v-if="url.length > 0" :href="url" target="_blank" :title="title">
+    <a
+      v-if="url.length > 0"
+      :href="url"
+      target="_blank"
+      :title="title"
+      :class="colorThemeClass"
+    >
       {{ content }}
     </a>
 
@@ -11,7 +17,7 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, inject, computed } from "vue";
 
 defineProps({
   content: {
@@ -27,6 +33,12 @@ defineProps({
     default: "",
   },
 });
+
+const isDarkMode = inject("isDarkMode");
+
+const colorThemeClass = computed(() =>
+  isDarkMode.value ? "baseListItem__darkMode" : "baseListItem__lightMode"
+);
 </script>
 
 <style lang="scss" scoped>
@@ -34,5 +46,13 @@ defineProps({
   display: flex;
 
   gap: 8px;
+}
+
+.baseListItem__lightMode {
+  color: #258f2e;
+}
+
+.baseListItem__darkMode {
+  color: #e6e6e6;
 }
 </style>

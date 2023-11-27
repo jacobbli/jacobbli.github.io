@@ -3,16 +3,20 @@
     {{ project.label }}
     <ul>
       <li v-for="link in project.links" :key="link">
-        <a :href="link.url" target="_blank" :title="link.url">{{
-          link.type
-        }}</a>
+        <a
+          :href="link.url"
+          target="_blank"
+          :title="link.url"
+          :class="colorThemeClass"
+          >{{ link.type }}</a
+        >
       </li>
     </ul>
   </div>
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, computed, inject } from "vue";
 
 defineProps({
   project: {
@@ -20,6 +24,12 @@ defineProps({
     required: true,
   },
 });
+
+const isDarkMode = inject("isDarkMode");
+
+const colorThemeClass = computed(() =>
+  isDarkMode.value ? "projectItem__darkMode" : "projectItem__lightMode"
+);
 </script>
 
 <style lang="scss" scoped>
@@ -30,5 +40,13 @@ ul {
   padding: revert;
 
   margin-top: 0px;
+}
+
+.projectItem__lightMode {
+  color: #258f2e;
+}
+
+.projectItem__darkMode {
+  color: #e6e6e6;
 }
 </style>

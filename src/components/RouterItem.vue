@@ -1,13 +1,13 @@
 <template>
   <div class="routerItem__container">
-    <router-link :to="target" :class="isSelectedClass"
+    <router-link :to="target" :class="[isSelectedClass, colorThemeClass]"
       ><slot></slot
     ></router-link>
   </div>
 </template>
 
 <script setup>
-import { defineProps, computed } from "vue";
+import { defineProps, computed, inject } from "vue";
 
 const props = defineProps({
   target: {
@@ -20,8 +20,14 @@ const props = defineProps({
   },
 });
 
+const isDarkMode = inject("isDarkMode");
+
 const isSelectedClass = computed(() =>
   props.isSelected ? "routerItem__isSelected" : ""
+);
+
+const colorThemeClass = computed(() =>
+  isDarkMode.value ? "routerItem__darkMode" : "routerItem__lightMode"
 );
 </script>
 
@@ -34,5 +40,13 @@ const isSelectedClass = computed(() =>
 .routerItem__isSelected {
   font-weight: bold;
   pointer-events: none;
+}
+
+.routerItem__lightMode {
+  color: #258f2e;
+}
+
+.routerItem__darkMode {
+  color: #e6e6e6;
 }
 </style>
