@@ -54,90 +54,80 @@ provide("isDarkMode", readonly(isDarkMode));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
+}
+.app__colorThemeToggle {
+  align-self: flex-end;
+  cursor: pointer;
+}
 
-  .app__colorThemeToggle {
-    align-self: flex-end;
-    cursor: pointer;
+.app__lightMode {
+  height: 100vh;
+
+  a {
+    color: #258f2e;
   }
 
-  .app__lightMode {
-    height: 100vh;
-
-    a {
-      color: #258f2e;
-    }
-
-    svg {
-      fill: black;
-    }
+  svg {
+    fill: black;
   }
+}
 
-  .app__darkMode {
-    height: 100vh;
+.app__darkMode {
+  height: 100vh;
 
-    background-color: rgb(59, 54, 47);
+  background-color: rgb(59, 54, 47);
+  color: #e6e6e6;
+
+  a {
     color: #e6e6e6;
-
-    a {
-      color: #e6e6e6;
-    }
-
-    svg {
-      fill: white;
-    }
   }
-  .app__content {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
 
-    padding-top: 20px;
-
-    .app__title {
-      font-weight: bold;
-      font-size: 36px;
-    }
-
-    .app__main {
-      .app__contactInfo {
-        padding: 16px 0 40px 0;
-        display: flex;
-        justify-content: space-between;
-        /* gap: 24px; */
-      }
-    }
+  svg {
+    fill: white;
   }
+}
+.app__content {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 20px;
+}
+.app__title {
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.app__contactInfo {
+  padding: 16px 0 40px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 @media only screen and (min-width: 768px) {
   #app {
-    height: 100vh;
-
     font-size: 20px;
+  }
+  .app__content {
+    width: 70%;
 
-    .app__content {
-      width: 70%;
+    padding-top: 150px;
+    gap: 36px;
+  }
+  .app__title {
+    font-weight: bold;
+  }
 
-      padding-top: 150px;
-      gap: 36px;
-
-      .app__title {
-        font-weight: bold;
-      }
-
-      .app__main {
-        display: grid;
-        grid-template-columns: 200px 1fr;
-
-        .app__router {
-          display: flex;
-          flex-direction: column;
-          /* justify-content: center; */
-          padding-left: 50px;
-        }
-      }
-    }
+  .app__main {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+  .app__router {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    padding-left: 50px;
   }
 }
 </style>
