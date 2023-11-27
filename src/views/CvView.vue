@@ -29,13 +29,4 @@ import cv from "../data/cv.json";
     padding-bottom: 8px;
   }
 }
-
-@media only screen and (min-width: 768px) {
-  .cvView__container {
-    display: flex;
-    flex-direction: row;
-
-    gap: 40px;
-  }
-}
 </style>
