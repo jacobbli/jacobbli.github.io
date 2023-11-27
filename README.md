@@ -1,24 +1,19 @@
-# jacobbli.github.io
+# Personal website
 
-## Project setup
+## Installation
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## Usage
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Build project
+
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
