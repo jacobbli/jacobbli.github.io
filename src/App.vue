@@ -1,7 +1,11 @@
 <template>
   <div :class="colorThemeClass">
     <div class="app__content">
-      <div @click="toggleColorTheme" class="app__colorThemeToggle">
+      <div
+        @click="toggleColorTheme"
+        class="app__colorThemeToggle"
+        :title="colorThemeIconTip"
+      >
         <sun-icon v-if="!isDarkMode" />
         <moon-icon v-else />
       </div>
@@ -27,6 +31,10 @@ const isMobile = ref(screen.width < 768);
 const isDarkMode = ref(true);
 const colorThemeClass = computed(() =>
   isDarkMode.value ? "app__darkMode" : "app__lightMode"
+);
+
+const colorThemeIconTip = computed(() =>
+  isDarkMode.value ? "Turn off dark mode" : "Turn on dark mode"
 );
 
 function toggleColorTheme() {
@@ -110,7 +118,7 @@ provide("isDarkMode", readonly(isDarkMode));
     font-size: 20px;
   }
   .app__content {
-    width: 70%;
+    width: 60%;
 
     padding-top: 150px;
     gap: 36px;
