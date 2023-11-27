@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+$base-font-family: Courier, sans-serif;
+$header-font-family: Courier, sans-serif;
+
+$base-font-weight: 400 !default;
+
+$base-line-height: 1.5 !default;
+
+$base-font-size: 18px;
+$small-font-size: $base-font-size * 0.875 !default;
+
+// $background-color: rgb(236, 236, 236);
+$base-text-color: black; //#1661ab;
+// $base-text-shadow-color: #1661ab;
+
+// $grey-color:       #828282 !default;
+// $grey-color-light: lighten($grey-color, 40%) !default;
+// $grey-color-dark:  darken($grey-color, 25%) !default;

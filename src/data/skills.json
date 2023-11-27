@@ -1,0 +1,43 @@
+{
+  "skills": [
+    {
+      "label": "Languages",
+      "items": [
+        { "label": "Python", "color": "#1781b5" },
+        { "label": "JavaScript", "color": "#e7eb1e" },
+        { "label": "HTML", "color": "#ffa500" },
+        { "label": "CSS", "color": "#1781b5" },
+        { "label": "SQL", "color": "#949494" }
+      ]
+    },
+    {
+      "label": "Databases",
+      "items": [{ "label": "PostgreSQL", "color": "#1781b5" }]
+    },
+    {
+      "label": "Operating Systems",
+      "items": [
+        { "label": "Windows", "color": "#1781b5" },
+        { "label": "Linux", "color": "#949494" }
+      ]
+    },
+    {
+      "label": "Project Management Tools",
+      "items": [
+        { "label": "Jira", "color": "#1781b5" },
+        { "label": "Confluence", "color": "#1781b5" },
+        { "label": "SharePoint", "color": "#2dc219" }
+      ]
+    },
+    {
+      "label": "Other Tools",
+      "items": [
+        { "label": "Lansweeper", "color": "#ffa500" },
+        { "label": "Git", "color": "#ffa500" },
+        { "label": "Microsoft Office", "color": "#ffa500" },
+        { "label": "Power Automate", "color": "#1781b5" },
+        { "label": "Active Directory", "color": "#949494" }
+      ]
+    }
+  ]
+}

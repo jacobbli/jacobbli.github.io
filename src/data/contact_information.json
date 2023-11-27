@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "type": "email",
+      "content": "jacob@jacobli.me",
+      "prefix": "mailto:",
+      "label": "Email",
+      "icon_path": "../assets/icon-email.svg"
+    },
+    {
+      "type": "url",
+      "content": "github.com/jacobbli",
+      "prefix": "https://",
+      "label": "Github",
+      "icon_path": "../assets/icon-github.svg"
+    },
+    {
+      "type": "url",
+      "content": "linkedin.com/in/li-jacob/",
+      "prefix": "https://",
+      "label": "LinkedIn",
+      "icon_path": "../assets/icon-linkedin.svg"
+    }
+  ]
+}
