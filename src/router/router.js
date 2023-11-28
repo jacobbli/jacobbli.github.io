@@ -7,7 +7,7 @@ import ContactDetailsView from "../views/ContactDetailsView.vue";
 const routes = [
   {
     path: "/",
-    redirect: "/skills",
+    redirect: "/projects",
   },
   {
     path: "/skills",
