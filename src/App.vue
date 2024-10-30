@@ -24,7 +24,7 @@ import SunIcon from "./components/icons/SunIcon.vue";
 import MoonIcon from "./components/icons/MoonIcon.vue";
 
 const isMobile = ref(screen.width < 768);
-const isDarkMode = ref(true);
+const isDarkMode = ref(false);
 const colorThemeClass = computed(() =>
   isDarkMode.value ? "app__darkMode" : "app__lightMode"
 );
