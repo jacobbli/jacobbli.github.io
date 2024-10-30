@@ -23,6 +23,7 @@ import cv from "../data/cv.json";
   display: flex;
   flex-direction: column;
   gap: 40px;
+
   .cvView__header {
     font-weight: bold;
     font-size: 24px;

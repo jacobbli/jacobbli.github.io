@@ -1,15 +1,11 @@
 <template>
   <div :class="colorThemeClass">
     <div class="app__content">
-      <div
-        @click="toggleColorTheme"
-        class="app__colorThemeToggle"
-        :title="colorThemeIconTip"
-      >
+      <div @click="toggleColorTheme" class="app__colorThemeToggle" :title="colorThemeIconTip">
         <sun-icon v-if="!isDarkMode" />
         <moon-icon v-else />
       </div>
-      <div class="app__title">Jacob Li</div>
+      <h1 class="app__title">Jacob Li</h1>
       <div class="app__main">
         <side-bar v-if="!isMobile" />
         <the-navigation v-if="isMobile" class="app__contactInfo" />
@@ -55,21 +51,25 @@ provide("isDarkMode", readonly(isDarkMode));
   box-sizing: border-box;
 }
 
-#app {
-  height: 100vh;
+html,
+body {
+  height: 100%;
+}
 
+#app {
   font-family: Courier, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
+  font-size: 20px;
 }
+
 .app__colorThemeToggle {
-  align-self: flex-end;
+  float: right;
   cursor: pointer;
 }
 
 .app__lightMode {
-  height: 100vh;
+  height: 100%;
 
   a {
     color: #258f2e;
@@ -81,7 +81,7 @@ provide("isDarkMode", readonly(isDarkMode));
 }
 
 .app__darkMode {
-  height: 100vh;
+  height: 100%;
 
   background-color: rgb(59, 54, 47);
   color: #e6e6e6;
@@ -94,48 +94,37 @@ provide("isDarkMode", readonly(isDarkMode));
     fill: white;
   }
 }
+
 .app__content {
   width: 90%;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-
-  padding-top: 20px;
+  padding-bottom: 24px;
 }
+
 .app__title {
-  font-weight: bold;
   font-size: 36px;
-}
-
-.app__contactInfo {
-  padding: 16px 0 40px 0;
-  display: flex;
-  justify-content: space-between;
 }
 
 @media only screen and (min-width: 768px) {
   #app {
-    font-size: 20px;
+    height: 100%;
+    overflow-y: hidden;
   }
-  .app__content {
-    width: 60%;
 
-    padding-top: 150px;
-    gap: 36px;
-  }
-  .app__title {
-    font-weight: bold;
+  .app__content {
+    width: 70%;
+    padding-top: 25px;
   }
 
   .app__main {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-  }
-  .app__router {
+    max-height: 500px;
+    padding-top: 50px;
     display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    padding-left: 50px;
+    gap: 120px;
+  }
+
+  .app__router {
+    overflow-y: auto;
   }
 }
 </style>
