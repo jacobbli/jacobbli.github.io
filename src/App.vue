@@ -1,47 +1,26 @@
 <template>
-  <div :class="colorThemeClass">
-    <div class="app__content">
-      <div @click="toggleColorTheme" class="app__colorThemeToggle" :title="colorThemeIconTip">
-        <sun-icon v-if="!isDarkMode" />
-        <moon-icon v-else />
-      </div>
-      <h1 class="app__title">Jacob Li</h1>
-      <div class="app__main">
-        <side-bar v-if="!isMobile" />
-        <the-navigation v-if="isMobile" class="app__contactInfo" />
+  <div class="app__content">
+    <h1 class="app__title">Jacob Li</h1>
+    <div class="app__main">
+      <side-bar v-if="!isMobile" />
+      <the-navigation v-if="isMobile" class="app__contactInfo" />
 
-        <router-view class="app__router" :key="$route.fullPath"></router-view>
-      </div>
+      <router-view class="app__router" :key="$route.fullPath"></router-view>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, computed, provide, readonly } from "vue";
+import { ref, onMounted } from "vue";
 import SideBar from "./components/SideBar.vue";
 import TheNavigation from "./components/TheNavigation.vue";
-import SunIcon from "./components/icons/SunIcon.vue";
-import MoonIcon from "./components/icons/MoonIcon.vue";
 
 const isMobile = ref(screen.width < 768);
-const isDarkMode = ref(false);
-const colorThemeClass = computed(() =>
-  isDarkMode.value ? "app__darkMode" : "app__lightMode"
-);
-
-const colorThemeIconTip = computed(() =>
-  isDarkMode.value ? "Turn off dark mode" : "Turn on dark mode"
-);
-
-function toggleColorTheme() {
-  isDarkMode.value = !isDarkMode.value;
-}
 
 onMounted(() => {
   window.onresize = () => (isMobile.value = screen.width < 768);
 });
 
-provide("isDarkMode", readonly(isDarkMode));
 </script>
 
 <style>
@@ -63,13 +42,11 @@ body {
   font-size: 20px;
 }
 
-.app__colorThemeToggle {
-  float: right;
-  cursor: pointer;
-}
-
-.app__lightMode {
+.app__content {
   height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 24px;
 
   a {
     color: #258f2e;
@@ -78,27 +55,6 @@ body {
   svg {
     fill: black;
   }
-}
-
-.app__darkMode {
-  height: 100%;
-
-  background-color: rgb(59, 54, 47);
-  color: #e6e6e6;
-
-  a {
-    color: #e6e6e6;
-  }
-
-  svg {
-    fill: white;
-  }
-}
-
-.app__content {
-  width: 90%;
-  margin: 0 auto;
-  padding-bottom: 24px;
 }
 
 .app__title {

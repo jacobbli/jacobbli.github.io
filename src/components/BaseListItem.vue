@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { defineProps, inject, computed } from "vue";
+import { defineProps } from "vue";
 
 defineProps({
   content: {
@@ -34,11 +34,6 @@ defineProps({
   },
 });
 
-const isDarkMode = inject("isDarkMode");
-
-const colorThemeClass = computed(() =>
-  isDarkMode.value ? "baseListItem__darkMode" : "baseListItem__lightMode"
-);
 </script>
 
 <style lang="scss" scoped>
@@ -48,11 +43,8 @@ const colorThemeClass = computed(() =>
   gap: 8px;
 }
 
-.baseListItem__lightMode {
-  color: #258f2e;
-}
+// .baseListItem__lightMode {
+//   color: #258f2e;
+// }
 
-.baseListItem__darkMode {
-  color: #e6e6e6;
-}
 </style>

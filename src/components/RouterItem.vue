@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { defineProps, computed, inject } from "vue";
+import { defineProps, computed } from "vue";
 
 const props = defineProps({
   target: {
@@ -20,14 +20,8 @@ const props = defineProps({
   },
 });
 
-const isDarkMode = inject("isDarkMode");
-
 const isSelectedClass = computed(() =>
   props.isSelected ? "routerItem__isSelected" : ""
-);
-
-const colorThemeClass = computed(() =>
-  isDarkMode.value ? "routerItem__darkMode" : "routerItem__lightMode"
 );
 </script>
 
@@ -42,11 +36,7 @@ const colorThemeClass = computed(() =>
   pointer-events: none;
 }
 
-.routerItem__lightMode {
-  color: #258f2e;
-}
-
-.routerItem__darkMode {
-  color: #e6e6e6;
-}
+// .routerItem__lightMode {
+//   color: #258f2e;
+// }
 </style>

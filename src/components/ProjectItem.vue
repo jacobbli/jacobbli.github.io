@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { defineProps, computed, inject } from "vue";
+import { defineProps } from "vue";
 
 defineProps({
   project: {
@@ -24,12 +24,6 @@ defineProps({
     required: true,
   },
 });
-
-const isDarkMode = inject("isDarkMode");
-
-const colorThemeClass = computed(() =>
-  isDarkMode.value ? "projectItem__darkMode" : "projectItem__lightMode"
-);
 </script>
 
 <style lang="scss" scoped>
@@ -42,11 +36,7 @@ ul {
   margin-top: 0px;
 }
 
-.projectItem__lightMode {
-  color: #258f2e;
-}
-
-.projectItem__darkMode {
-  color: #e6e6e6;
-}
+// .projectItem__lightMode {
+//   color: #258f2e;
+// }
 </style>

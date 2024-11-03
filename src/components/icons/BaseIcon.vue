@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { defineProps, computed, inject } from "vue";
+import { defineProps } from "vue";
 
 defineProps({
   colorProp: {
@@ -13,12 +13,6 @@ defineProps({
     default: "",
   },
 });
-
-const isDarkMode = inject("isDarkMode");
-
-const colorThemeClass = computed(() =>
-  isDarkMode.value ? "baseIcon__darkMode" : "baseIcon__lightMode"
-);
 </script>
 
 <style lang="scss" scoped>
@@ -28,11 +22,4 @@ const colorThemeClass = computed(() =>
   fill: v-bind(colorProp);
 }
 
-.baseIcon__lightMode {
-  fill: black;
-}
-
-.baseIcon__darkMode {
-  fill: #e6e6e6;
-}
 </style>
