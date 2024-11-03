@@ -36,7 +36,4 @@ ul {
   margin-top: 0px;
 }
 
-// .projectItem__lightMode {
-//   color: #258f2e;
-// }
 </style>

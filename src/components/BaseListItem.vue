@@ -43,8 +43,4 @@ defineProps({
   gap: 8px;
 }
 
-// .baseListItem__lightMode {
-//   color: #258f2e;
-// }
-
 </style>

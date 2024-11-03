@@ -36,7 +36,4 @@ const isSelectedClass = computed(() =>
   pointer-events: none;
 }
 
-// .routerItem__lightMode {
-//   color: #258f2e;
-// }
 </style>
