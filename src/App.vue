@@ -1,19 +1,15 @@
 <template>
-  <div class="app__content">
-    <h1 class="app__title">Jacob Li</h1>
-    <div class="app__main">
-      <side-bar v-if="!isMobile" />
-      <the-navigation v-if="isMobile" class="app__contactInfo" />
-
-      <router-view class="app__router" :key="$route.fullPath"></router-view>
-    </div>
+  <the-header />
+  <div class="app__main">
+    <!-- <side-bar v-if="!isMobile" /> -->
+    <!-- <the-navigation v-if="isMobile" class="app__contactInfo" /> -->
+    <router-view class="app__router" :key="$route.fullPath"></router-view>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
-import SideBar from "./components/SideBar.vue";
-import TheNavigation from "./components/TheNavigation.vue";
+import TheHeader from "./components/TheHeader.vue";
 
 const isMobile = ref(screen.width < 768);
 
@@ -24,6 +20,8 @@ onMounted(() => {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Zen+Kurenaido&family=Varela+Round&family=Ubuntu");
+
 * {
   margin: 0;
   padding: 0;
@@ -36,51 +34,32 @@ body {
 }
 
 #app {
-  font-family: Courier, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 20px;
-}
-
-.app__content {
   height: 100%;
   width: 90%;
   margin: 0 auto;
-  padding-bottom: 24px;
+
+  font-family: "Varela Round", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   a {
     color: #258f2e;
   }
-
-  svg {
-    fill: black;
-  }
 }
 
-.app__title {
-  font-size: 36px;
-}
+
 
 @media only screen and (min-width: 768px) {
-  #app {
-    height: 100%;
-    overflow-y: hidden;
-  }
-
-  .app__content {
-    width: 70%;
-    padding-top: 25px;
-  }
 
   .app__main {
-    max-height: 500px;
-    padding-top: 50px;
+    height: calc(100% - 128px);
     display: flex;
+    flex-direction: row;
     gap: 120px;
   }
 
   .app__router {
-    overflow-y: auto;
+    padding-top: 40px;
   }
 }
 </style>

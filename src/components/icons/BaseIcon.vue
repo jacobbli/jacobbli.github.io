@@ -1,5 +1,5 @@
 <template>
-  <div class="icon__main" :class="colorThemeClass">
+  <div class="icon__main">
     <slot></slot>
   </div>
 </template>

@@ -1,10 +1,20 @@
 <template>
   <div class="projectsView__container">
-    <projects-list :projects="projects.projects" />
+    <project-gallery :projects="projects.projects" />
+
   </div>
 </template>
 
 <script setup>
 import projects from "../data/projects.json";
-import ProjectsList from "@/components/ProjectsList.vue";
+import ProjectGallery from "@/components/projects/ProjectGallery.vue";
 </script>
+
+<style lang="scss" scoped>
+.projectsView__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>

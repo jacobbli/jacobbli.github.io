@@ -1,6 +1,6 @@
 <template>
   <div class="routerItem__container">
-    <router-link :to="target" :class="[isSelectedClass, colorThemeClass]"
+    <router-link :to="target" :class="isSelectedClass"
       ><slot></slot
     ></router-link>
   </div>
@@ -28,12 +28,12 @@ const isSelectedClass = computed(() =>
 <style lang="scss" scoped>
 .routerItem__container a {
   display: flex;
-  gap: 8px;
+  gap: 4px;
+  text-decoration: none;
 }
 
 .routerItem__isSelected {
   font-weight: bold;
-  pointer-events: none;
 }
 
 </style>

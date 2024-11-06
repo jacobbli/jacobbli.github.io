@@ -1,10 +1,6 @@
 <template>
   <div class="educationList__container">
-    <div
-      class="educationList__item"
-      v-for="program in educationList"
-      :key="program.title + program.dates"
-    >
+    <div class="educationList__item" v-for="program in educationHistory" :key="program.title + program.dates">
       <span>{{ program.start_date }} — {{ program.end_date }}</span>
       <span>{{ program.title }}</span>
     </div>
@@ -12,11 +8,23 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 
-defineProps({
-  educationList: Array,
-});
+const educationHistory = [
+  {
+    "start_date": "2018.09",
+    "end_date": "2021.09",
+    "title": "Bachelor of Science - Computer Science",
+    "school": "Simon Fraser University",
+    "location": "Canada",
+  },
+  {
+    "start_date": "2011.09",
+    "end_date": "2016.09",
+    "title": "Bachelor of Business Administration",
+    "school": "Simon Fraser University",
+    "location": "Canada",
+  }
+]
 </script>
 
 <style lang="scss" scoped>
@@ -24,6 +32,7 @@ defineProps({
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   .educationList__item {
     display: flex;
     flex-direction: column;

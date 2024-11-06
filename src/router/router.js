@@ -1,18 +1,14 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import SkillsView from "../views/SkillsView.vue";
 import ProjectsView from "../views/ProjectsView.vue";
-import CvView from "../views/CvView.vue";
+import ResumeView from "../views/ResumeView.vue";
 import ContactDetailsView from "../views/ContactDetailsView.vue";
+import HomeView from "@/views/HomeView.vue";
 
 const routes = [
   {
     path: "/",
-    redirect: "/projects",
-  },
-  {
-    path: "/skills",
-    name: "Skills",
-    component: SkillsView,
+    name: "Home",
+    component: HomeView
   },
   {
     path: "/projects",
@@ -20,9 +16,9 @@ const routes = [
     component: ProjectsView,
   },
   {
-    path: "/cv",
-    name: "Cv",
-    component: CvView,
+    path: "/resume",
+    name: "Resume",
+    component: ResumeView
   },
   {
     path: "/contact",

@@ -1,13 +1,13 @@
 <template>
-  <div class="theNavigation__container">
-    <router-item :target="'skills'" :is-selected="currentRoute == 'Skills'">
-      <lightbulb-icon />Skills
+  <div class="navBar__container">
+    <router-item :target="'/'" :is-selected="currentRoute == 'Home'">
+      <home-icon />Home
     </router-item>
     <router-item :target="'projects'" :is-selected="currentRoute == 'Projects'">
-      <project-icon />Projects
+      <lightbulb-icon />Projects
     </router-item>
-    <router-item :target="'cv'" :is-selected="currentRoute == 'Cv'">
-      <cv-icon />CV
+    <router-item :target="'resume'" :is-selected="currentRoute == 'Resume'">
+      <cv-icon />Resume
     </router-item>
     <router-item
       v-if="showContact"
@@ -21,11 +21,13 @@
 
 <script setup>
 import { defineProps, computed } from "vue";
-import LightbulbIcon from "./icons/LightbulbIcon.vue";
-import ProjectIcon from "./icons/ProjectIcon.vue";
+// import LightbulbIcon from "./icons/LightbulbIcon.vue";
+// import ProjectIcon from "./icons/ProjectIcon.vue";
 import CvIcon from "./icons/CvIcon.vue";
 import ContactIcon from "./icons/ContactIcon.vue";
 import RouterItem from "./RouterItem.vue";
+import HomeIcon from "./icons/HomeIcon.vue";
+import LightbulbIcon from "./icons/LightbulbIcon.vue";
 
 import { useRoute } from "vue-router";
 
@@ -40,3 +42,10 @@ defineProps({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.navBar__container {
+  display: flex;
+  gap: 16px;
+}
+</style>

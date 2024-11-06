@@ -2,16 +2,8 @@
   "projects": [
     {
       "label": "Car Share Trip Calculator",
-      "links": [
-        {
-          "type": "github",
-          "url": "https://github.com/jacobbli/trip-cost-calculator-app"
-        },
-        {
-          "type": "app",
-          "url": "https://www.jacobli.me/trip-cost-calculator-app"
-        }
-      ],
+      "github": "https://github.com/jacobbli/trip-cost-calculator-app",
+      "app" : "https://www.jacobli.me/trip-cost-calculator-app",
       "previewImg": "trip-calc.png",
       "skills": [
         {
@@ -26,12 +18,8 @@
     },
     {
       "label": "Accident Report Form",
-      "links": [
-        {
-          "type": "github",
-          "url": "https://github.com/jacobbli/accident-report-form"
-        }
-      ],
+      "github": "https://github.com/jacobbli/accident-report-form",
+      "app": "",
       "previewImg": "accident-form.png",
       "skills": [
         {
@@ -46,12 +34,8 @@
     },
     {
       "label": "Freshly Produce",
-      "links": [
-        {
-          "type": "github",
-          "url": "https://github.com/jacobbli/freshly-produce"
-        }
-      ],
+      "github": "https://github.com/jacobbli/freshly-produce",
+      "app": "",
       "previewImg": "freshly-produce.png",
       "skills": [
         {
@@ -65,30 +49,6 @@
         {
           "category": "database",
           "skills": ["postgresql"]
-        }
-      ]
-    },
-    {
-      "label": "Bitcoin Price Predictor",
-      "links": [
-        {
-          "type": "github",
-          "url": "https://github.com/jacobbli/bitcoin-price-predictor"
-        }
-      ],
-      "previewImg": "bitcoin-price-predictor.png",
-      "skills": [
-        {
-          "category": "Languages",
-          "skills": ["javascript", "python"]
-        },
-        {
-          "category": "Frameworks",
-          "skills": ["react", "fastapi"]
-        },
-        {
-          "category": "Software",
-          "skills": ["knime"]
         }
       ]
     }

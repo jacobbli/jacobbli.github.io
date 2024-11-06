@@ -1,16 +1,17 @@
 <template>
-  <div class="projectsList__container">
-    <project-item
+  <base-gallery>
+    <project-card
       v-for="project in projects"
       :key="project.label"
       :project="project"
     />
-  </div>
+  </base-gallery>
 </template>
 
 <script setup>
 import { defineProps } from "vue";
-import ProjectItem from "./ProjectItem.vue";
+import ProjectCard from "./ProjectCard.vue";
+import BaseGallery from "../BaseGallery.vue";
 
 defineProps({
   projects: {
@@ -23,7 +24,7 @@ defineProps({
 <style lang="scss" scoped>
 .projectsList__container {
   display: flex;
-  flex-direction: column;
   gap: 16px;
+  justify-content: space-evenly;
 }
 </style>

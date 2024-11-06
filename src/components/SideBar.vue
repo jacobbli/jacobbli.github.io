@@ -1,32 +1,36 @@
 <template>
-  <div class="sideMenu__container">
-    <div class="sideMenu__content">
-      <the-navigation class="sideBar__theNavigation" :show-contact="false" />
-      <contact-info />
-    </div>
+  <div class="sideMenu__content">
+    <navigation-item v-for="(option, index) in options" :key="option" @click="onSelect(index)"
+      :is-selected="selectedIndex == index">
+      {{ option }}
+    </navigation-item>
   </div>
 </template>
 
 <script setup>
-import TheNavigation from "./TheNavigation.vue";
-import ContactInfo from "./ContactInfo.vue";
+import { defineProps } from 'vue';
+import NavigationItem from './NavigationItem.vue';
+
+defineProps({
+  options: {
+    type: Array,
+    required: true,
+  },
+  selectedIndex: {
+    type: Number,
+    required: true
+  },
+  onSelect: {
+    type: Function,
+    required: false
+  }
+});
+
 </script>
 <style lang="scss" scoped>
-.sideMenu__container {
+.sideMenu__content {
   display: flex;
   flex-direction: column;
-
-  .sideMenu__content {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-
-    .sideBar__theNavigation {
-      display: flex;
-      flex-direction: column;
-
-      gap: 8px;
-    }
-  }
+  gap: 20px;
 }
 </style>

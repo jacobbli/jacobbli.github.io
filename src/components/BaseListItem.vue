@@ -7,7 +7,6 @@
       :href="url"
       target="_blank"
       :title="title"
-      :class="colorThemeClass"
     >
       {{ content }}
     </a>
