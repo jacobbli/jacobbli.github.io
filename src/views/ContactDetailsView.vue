@@ -1,42 +1,42 @@
 <template>
   <div class="contactDetailsView__container">
-    <base-list-item
-      v-for="item in contactInfo"
-      :key="item.content"
-      :content="item.content"
-      :url="item.prefix + item.content"
-      :title="item.prefix + item.content"
-    >
-      <template #icon><component :is="item.component" /></template>
-      <template #label>{{ item.label }}:</template>
-    </base-list-item>
+    <div v-for="item in contactInfo" :key="item.content" class="contactDetailsView__content">
+      <component :is="item.icon" />
+      <a :href="item.href" target="_blank">
+        <base-hyperlink>
+          {{ item.content }}
+        </base-hyperlink>
+      </a>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted, shallowRef } from "vue";
-import contactInformation from "../data/contact_information.json";
-import BaseListItem from "../components/BaseListItem.vue";
 import EmailIcon from "../components/icons/EmailIcon.vue";
 import GithubIcon from "../components/icons/GithubIcon.vue";
 import LinkedinIcon from "../components/icons/LinkedinIcon.vue";
+import BaseHyperlink from "@/components/BaseHyperlink.vue";
 
-const contactInfo = shallowRef(null);
-
-onMounted(() => {
-  const iconMap = {
-    github: GithubIcon,
-    email: EmailIcon,
-    linkedin: LinkedinIcon,
-  };
-
-  contactInfo.value = contactInformation.data.map((currentInfo) => {
-    return {
-      ...currentInfo,
-      component: iconMap[currentInfo.label.toLowerCase()],
-    };
-  });
-});
+const contactInfo = [
+  {
+    content: "jacob@jacobli.me",
+    href: "mailto:jacob@jacobli.me",
+    type: "Email",
+    icon: EmailIcon
+  },
+  {
+    content: "github.com/jacobbli",
+    href: "https://github.com/jacobbli",
+    type: "Github",
+    icon: GithubIcon
+  },
+  {
+    content: "linkedin.com/in/li-jacob/",
+    href: "https://linkedin.com/in/li-jacob/",
+    type: "LinkedIn",
+    icon: LinkedinIcon
+  }
+]
 </script>
 
 <style lang="scss" scoped>
@@ -45,5 +45,14 @@ onMounted(() => {
   flex-direction: column;
 
   gap: 20px;
+
+  .contactDetailsView__content {
+    display: flex;
+    gap: 8px;
+
+    a {
+      text-decoration: none;
+    }
+  }
 }
 </style>

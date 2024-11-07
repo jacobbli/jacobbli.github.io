@@ -1,33 +1,16 @@
 <template>
   <div class="navBar__container">
-    <router-item :target="'/'" :is-selected="currentRoute == 'Home'">
-      <home-icon />Home
-    </router-item>
-    <router-item :target="'projects'" :is-selected="currentRoute == 'Projects'">
-      <lightbulb-icon />Projects
-    </router-item>
-    <router-item :target="'resume'" :is-selected="currentRoute == 'Resume'">
-      <cv-icon />Resume
-    </router-item>
-    <router-item
-      v-if="showContact"
-      target="contact"
-      :is-selected="currentRoute == 'ContactDetails'"
-    >
-      <contact-icon />Contact
-    </router-item>
+    <nav-item v-for="route in routes" :key="route.label" 
+      :target="route.target" 
+      :label="route.label"
+      :is-selected="currentRoute == route.label"
+    />
   </div>
 </template>
 
 <script setup>
 import { defineProps, computed } from "vue";
-// import LightbulbIcon from "./icons/LightbulbIcon.vue";
-// import ProjectIcon from "./icons/ProjectIcon.vue";
-import CvIcon from "./icons/CvIcon.vue";
-import ContactIcon from "./icons/ContactIcon.vue";
-import RouterItem from "./RouterItem.vue";
-import HomeIcon from "./icons/HomeIcon.vue";
-import LightbulbIcon from "./icons/LightbulbIcon.vue";
+import NavItem from "./NavItem.vue";
 
 import { useRoute } from "vue-router";
 
@@ -41,6 +24,26 @@ defineProps({
     default: true,
   },
 });
+
+const routes = [
+  {
+    target: '/',
+    label: "Home"
+  },
+  {
+    target: 'projects',
+    label: "Projects"
+  },
+  {
+    target: 'resume',
+    label: "Resume"
+  },
+  {
+    target: 'contact',
+    label: "Contact"
+  },
+]
+
 </script>
 
 <style lang="scss" scoped>

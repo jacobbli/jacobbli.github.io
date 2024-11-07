@@ -7,7 +7,7 @@
 
 <script setup>
 import NavBar from "./NavBar.vue";
-// import ContactInfo from "./ContactInfo.vue";
+
 </script>
 <style lang="scss" scoped>
 .theHeader__container {

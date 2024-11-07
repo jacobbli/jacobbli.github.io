@@ -5,14 +5,7 @@
 </template>
 
 <script setup>
-// import { defineProps } from "vue";
 
-// defineProps({
-//   galleryItems: {
-//     type: Object,
-//     required: true,
-//   },
-// });
 </script>
 
 <style lang="scss" scoped>

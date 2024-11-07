@@ -42,9 +42,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  a {
+  /* a {
     color: #258f2e;
-  }
+  } */
 }
 
 
