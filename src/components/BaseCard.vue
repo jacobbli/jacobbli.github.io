@@ -22,9 +22,11 @@ defineProps({
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 8px;
-  border: 1px solid gray;
-  border-radius: 10px;
+  padding: 16px;
+  border-radius: 24px;
+
+  background-color: #2C734F;
+  color: #DFF2E9;
 }
 
 </style>

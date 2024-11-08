@@ -1,5 +1,5 @@
 <template>
-    <div class="navigationItem__content" :class="isSelectedClass">
+    <div class="navigationItem__content" :class="[isSelectedClass, colorClass]">
         <slot></slot>
     </div>
 </template>
@@ -12,10 +12,18 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    isPrimaryColor: {
+        type: Boolean,
+        default: true,
+    },
 });
 
 const isSelectedClass = computed(() =>
     props.isSelected ? "navigationItem__isSelected" : ""
+);
+
+const colorClass = computed(() =>
+    props.isPrimaryColor ? "primaryColor" : "secondaryColor"
 );
 </script>
 
@@ -24,12 +32,21 @@ const isSelectedClass = computed(() =>
     display: flex;
     gap: 4px;
     text-decoration: none;
-    color: #258f2e;
+    color: #2C734F;
 
     cursor: pointer;
 }
 
 .navigationItem__isSelected {
     font-weight: bold;
+}
+
+.primaryColor {
+    color: #2C734F;
+
+}
+
+.secondaryColor {
+    color: #def2e8
 }
 </style>

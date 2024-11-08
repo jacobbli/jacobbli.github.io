@@ -1,8 +1,6 @@
 <template>
   <the-header />
   <div class="app__main">
-    <!-- <side-bar v-if="!isMobile" /> -->
-    <!-- <the-navigation v-if="isMobile" class="app__contactInfo" /> -->
     <router-view class="app__router" :key="$route.fullPath"></router-view>
   </div>
 </template>
@@ -31,6 +29,7 @@ onMounted(() => {
 html,
 body {
   height: 100%;
+  background-color: #def2e8;
 }
 
 #app {
@@ -41,10 +40,6 @@ body {
   font-family: "Varela Round", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* a {
-    color: #258f2e;
-  } */
 }
 
 
@@ -56,10 +51,6 @@ body {
     display: flex;
     flex-direction: row;
     gap: 120px;
-  }
-
-  .app__router {
-    padding-top: 40px;
   }
 }
 </style>

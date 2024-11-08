@@ -3,9 +3,9 @@
     <div v-for="item in contactInfo" :key="item.content" class="contactDetailsView__content">
       <component :is="item.icon" />
       <a :href="item.href" target="_blank">
-        <base-hyperlink>
+        <base-link>
           {{ item.content }}
-        </base-hyperlink>
+        </base-link>
       </a>
     </div>
   </div>
@@ -15,7 +15,7 @@
 import EmailIcon from "../components/icons/EmailIcon.vue";
 import GithubIcon from "../components/icons/GithubIcon.vue";
 import LinkedinIcon from "../components/icons/LinkedinIcon.vue";
-import BaseHyperlink from "@/components/BaseHyperlink.vue";
+import BaseLink from "@/components/BaseLink.vue";
 
 const contactInfo = [
   {
@@ -31,8 +31,8 @@ const contactInfo = [
     icon: GithubIcon
   },
   {
-    content: "linkedin.com/in/li-jacob/",
-    href: "https://linkedin.com/in/li-jacob/",
+    content: "linkedin.com/in/jacobbli",
+    href: "https://linkedin.com/in/jacobbli/",
     type: "LinkedIn",
     icon: LinkedinIcon
   }

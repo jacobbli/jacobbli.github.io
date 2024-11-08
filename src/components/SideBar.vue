@@ -1,15 +1,15 @@
 <template>
   <div class="sideMenu__content">
-    <base-hyperlink v-for="(option, index) in options" :key="option" @click="onSelect(index)"
+    <base-link v-for="(option, index) in options" :key="option" @click="onSelect(index)"
       :is-selected="selectedIndex == index">
       {{ option }}
-    </base-hyperlink >
+    </base-link >
   </div>
 </template>
 
 <script setup>
 import { defineProps } from 'vue';
-import BaseHyperlink from './BaseHyperlink.vue';
+import BaseLink from './BaseLink.vue';
 
 defineProps({
   options: {

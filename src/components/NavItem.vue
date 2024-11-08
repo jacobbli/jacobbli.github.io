@@ -3,9 +3,9 @@
     <router-link :to="target" :class="isSelectedClass">
       <component :is="iconMap[target]" />
 
-      <base-hyperlink :is-selected="isSelected">
+      <base-link :is-selected="isSelected">
         {{ label }}
-      </base-hyperlink>
+      </base-link>
     </router-link>
   </div>
 </template>
@@ -16,7 +16,7 @@ import ResumeIcon from "./icons/CvIcon.vue";
 import ContactIcon from "./icons/ContactIcon.vue";
 import HomeIcon from "./icons/HomeIcon.vue";
 import LightbulbIcon from "./icons/LightbulbIcon.vue";
-import BaseHyperlink from "./BaseHyperlink.vue";
+import BaseLink from "./BaseLink.vue";
 
 const props = defineProps({
   target: {
