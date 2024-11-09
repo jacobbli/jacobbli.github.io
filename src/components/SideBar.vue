@@ -1,8 +1,9 @@
 <template>
   <div class="sideMenu__content">
     <base-link v-for="(option, index) in options" :key="option" @click="onSelect(index)"
-      :is-selected="selectedIndex == index">
-      {{ option }}
+      :is-selected="selectedIndex == index"
+      :label="option"
+      >
     </base-link >
   </div>
 </template>

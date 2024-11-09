@@ -2,11 +2,7 @@
   <div class="contactDetailsView__container">
     <div v-for="item in contactInfo" :key="item.content" class="contactDetailsView__content">
       <component :is="item.icon" />
-      <a :href="item.href" target="_blank">
-        <base-link>
-          {{ item.content }}
-        </base-link>
-      </a>
+      <base-link :label="item.content" @click="navigateTo(item.href)"/>
     </div>
   </div>
 </template>
@@ -37,6 +33,10 @@ const contactInfo = [
     icon: LinkedinIcon
   }
 ]
+
+function navigateTo(target) {
+  window.open(target)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -49,10 +49,6 @@ const contactInfo = [
   .contactDetailsView__content {
     display: flex;
     gap: 8px;
-
-    a {
-      text-decoration: none;
-    }
   }
 }
 </style>

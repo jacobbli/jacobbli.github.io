@@ -1,18 +1,15 @@
 <template>
   <base-card :title="project.label">
-    <a v-if="project.github != ''" :href="project.github" target="_blank">
-          <base-link :is-primary-color="false">
-            Github repo
-          </base-link>
-        </a>
+    <base-link v-if="project.github != ''" 
+      :is-primary-color="false" 
+      label="Github repo"
+      @click="navigateTo(project.github)" />
 
-        <a v-if="project.app != ''" :href="project.app" target="_blank">
-          <base-link :is-primary-color="false">
-            App
-          </base-link>
-        </a>
-    <!-- <a v-if="project.github != ''" :href="project.github">Github repo</a>
-    <a v-if="project.app != ''" :href="project.app">App</a> -->
+    <base-link v-if="project.app != ''" 
+      :is-primary-color="false" 
+      label="App" 
+      @click="navigateTo(project.app)" />
+
   </base-card>
 </template>
 
@@ -27,11 +24,12 @@ defineProps({
     required: true,
   },
 });
+
+function navigateTo(target) {
+  window.open(target)
+}
 </script>
 
 <style lang="scss" scoped>
-a {
-  text-decoration: none;
-}
 
 </style>

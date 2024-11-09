@@ -1,6 +1,6 @@
 <template>
   <div class="navBar__container">
-    <nav-item v-for="route in routes" :key="route.label" 
+    <nav-bar-item v-for="route in routes" :key="route.label" 
       :target="route.target" 
       :label="route.label"
       :is-selected="currentRoute == route.label"
@@ -10,7 +10,7 @@
 
 <script setup>
 import { defineProps, computed } from "vue";
-import NavItem from "./NavItem.vue";
+import NavBarItem from "./NavBarItem.vue";
 
 import { useRoute } from "vue-router";
 

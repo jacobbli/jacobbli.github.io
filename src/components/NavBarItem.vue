@@ -1,12 +1,10 @@
 <template>
-  <div class="navItem__container">
-    <router-link :to="target" :class="isSelectedClass">
-      <component :is="iconMap[target]" />
-
-      <base-link :is-selected="isSelected">
-        {{ label }}
-      </base-link>
-    </router-link>
+  <div class="navBarItem__container">
+    <base-link :is-selected="isSelected" @click="routeTo(target)" :class="isSelectedClass" :label="label">
+      <template #icon>
+        <component :is="iconMap[target]" />
+      </template>
+    </base-link>
   </div>
 </template>
 
@@ -17,6 +15,7 @@ import ContactIcon from "./icons/ContactIcon.vue";
 import HomeIcon from "./icons/HomeIcon.vue";
 import LightbulbIcon from "./icons/LightbulbIcon.vue";
 import BaseLink from "./BaseLink.vue";
+import router from "@/router/router";
 
 const props = defineProps({
   target: {
@@ -34,7 +33,7 @@ const props = defineProps({
 });
 
 const isSelectedClass = computed(() =>
-  props.isSelected ? "navItem__isSelected" : ""
+  props.isSelected ? "navBarItem__isSelected" : ""
 );
 
 const iconMap = {
@@ -44,17 +43,12 @@ const iconMap = {
   "contact": ContactIcon
 }
 
+function routeTo(target) {
+  router.push(target)
+}
 
 </script>
 
 <style lang="scss" scoped>
-.navItem__container a {
-  display: flex;
-  gap: 4px;
-  text-decoration: none;
-}
 
-.navItem__isSelected {
-  font-weight: bold;
-}
 </style>
