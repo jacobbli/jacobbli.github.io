@@ -1,6 +1,6 @@
 <template>
   <div class="theHeader__container">
-    <h1 class="theHeader__title"></h1>
+    <h1 class="theHeader__title">Jacob Li</h1>
     <nav-bar :show-contact="false" />
   </div>
 </template>
