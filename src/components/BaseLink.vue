@@ -1,12 +1,16 @@
 <template>
     <div class="baseLink__content" :class="[isSelectedClass, colorClass]">
-        <slot name='icon'></slot>
+        <component :is="iconMap[label]" />
         <div>{{ label }}</div>
     </div>
 </template>
 
 <script setup>
 import { defineProps, computed } from "vue";
+import ResumeIcon from "./icons/CvIcon.vue";
+import ContactIcon from "./icons/ContactIcon.vue";
+import HomeIcon from "./icons/HomeIcon.vue";
+import LightbulbIcon from "./icons/LightbulbIcon.vue";
 
 const props = defineProps({
     isSelected: {
@@ -24,7 +28,7 @@ const props = defineProps({
     label: {
         type: String,
         default: ""
-    },
+    }
 });
 
 const isSelectedClass = computed(() =>
@@ -34,6 +38,14 @@ const isSelectedClass = computed(() =>
 const colorClass = computed(() =>
     props.isPrimaryColor & !props.isSelected ? "primaryColor" : "secondaryColor"
 );
+
+const iconMap = {
+    Home: HomeIcon,
+    Resume: ResumeIcon,
+    Projects: LightbulbIcon,
+    Contacts: ContactIcon
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -54,23 +66,29 @@ const colorClass = computed(() =>
 
 .primaryColor {
     color: #2C734F;
+    fill: #2C734F;
 
-    transition: background-color 0.5s, color 0.5s;
+
+    transition: background-color 0.5s, color 0.5s, fill 0.5s;
 
     &:hover {
         background-color: #2C734F;
         color: #def2e8;
+        fill: #def2e8;
+
     }
 }
 
 .secondaryColor {
     color: #def2e8;
+    fill: #def2e8;
 
-    transition: background-color 0.5s, color 0.5s;
+    transition: background-color 0.5s, color 0.5s, fill 0.5s;
 
     &:hover {
         background-color: #def2e8;
         color: #2C734F;
+        fill: #2C734F;
     }
 }
 </style>

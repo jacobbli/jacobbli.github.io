@@ -8,7 +8,7 @@
 import { defineProps } from "vue";
 
 defineProps({
-  colorProp: {
+  fill: {
     type: String,
     default: "",
   },
@@ -19,7 +19,7 @@ defineProps({
 .icon__main {
   display: flex;
   width: 20px;
-  fill: v-bind(colorProp);
+  // fill: v-bind(colorProp);
 }
 
 </style>

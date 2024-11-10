@@ -1,6 +1,6 @@
 <template>
   <base-icon>
-    <svg viewBox="0 0 1024 1024">
+    <svg viewBox="0 0 1024 1024" :fill="fill">
       <path
         d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32z m-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5z"
         p-id="8154"
@@ -15,4 +15,12 @@
 
 <script setup>
 import BaseIcon from "./BaseIcon.vue";
+import { defineProps } from "vue";
+
+defineProps({
+  fill: {
+    type: String,
+    default: "",
+  },
+});
 </script>
