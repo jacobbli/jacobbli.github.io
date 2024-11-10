@@ -1,7 +1,9 @@
 <template>
   <div class="baseCard__container">
     <h3>{{ title }}</h3>
-    <slot></slot>
+    <div class="baseCard__content">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -28,5 +30,4 @@ defineProps({
   background-color: #2C734F;
   color: #DFF2E9;
 }
-
 </style>

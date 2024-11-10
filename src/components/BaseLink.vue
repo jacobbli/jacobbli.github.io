@@ -41,7 +41,7 @@ const colorClass = computed(() =>
     display: flex;
     gap: 4px;
     width: fit-content;
-    padding: 8px;
+    padding: 4px 8px 4px 8px;
     border-radius: 20px;
 
     cursor: pointer;
@@ -64,6 +64,13 @@ const colorClass = computed(() =>
 }
 
 .secondaryColor {
-    color: #def2e8
+    color: #def2e8;
+
+    transition: background-color 0.5s, color 0.5s;
+
+    &:hover {
+        background-color: #def2e8;
+        color: #2C734F;
+    }
 }
 </style>
