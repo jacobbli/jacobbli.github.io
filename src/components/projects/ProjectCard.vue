@@ -3,6 +3,7 @@
     <base-link v-if="project.github != ''" 
       :is-primary-color="false" 
       label="Github repo"
+      icon="Github"
       @click="navigateTo(project.github)" />
 
     <base-link v-if="project.app != ''" 

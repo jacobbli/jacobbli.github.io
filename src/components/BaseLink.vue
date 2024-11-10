@@ -1,6 +1,6 @@
 <template>
     <div class="baseLink__content" :class="[isSelectedClass, colorClass]">
-        <component :is="iconMap[label]" />
+        <component :is="iconMap[icon]" />
         <div>{{ label }}</div>
     </div>
 </template>
@@ -11,6 +11,7 @@ import ResumeIcon from "./icons/CvIcon.vue";
 import ContactIcon from "./icons/ContactIcon.vue";
 import HomeIcon from "./icons/HomeIcon.vue";
 import LightbulbIcon from "./icons/LightbulbIcon.vue";
+import GithubIcon from "./icons/GithubIcon.vue";
 
 const props = defineProps({
     isSelected: {
@@ -28,6 +29,10 @@ const props = defineProps({
     label: {
         type: String,
         default: ""
+    },
+    icon: {
+        type: String,
+        default: ""
     }
 });
 
@@ -35,15 +40,21 @@ const isSelectedClass = computed(() =>
     props.isSelected ? "baseLink__isSelected" : ""
 );
 
-const colorClass = computed(() =>
-    props.isPrimaryColor & !props.isSelected ? "primaryColor" : "secondaryColor"
+const colorClass = computed(
+    () => {
+        if (props.isSelected) return ""
+        if (props.isPrimaryColor) return "primaryColor"
+        return "secondaryColor"
+
+    }
 );
 
 const iconMap = {
     Home: HomeIcon,
     Resume: ResumeIcon,
     Projects: LightbulbIcon,
-    Contacts: ContactIcon
+    Contact: ContactIcon,
+    Github: GithubIcon
 }
 
 </script>
@@ -61,7 +72,9 @@ const iconMap = {
 
 .baseLink__isSelected {
     background-color: #2C734F;
-    color: #def2e8
+    color: #def2e8;
+    fill: #def2e8;
+
 }
 
 .primaryColor {

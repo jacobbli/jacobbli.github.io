@@ -1,6 +1,7 @@
 <template>
   <div class="navItem__container">
-    <base-link :is-selected="isSelected" @click="routeTo(target)" :class="isSelectedClass" :label="label" />
+    <base-link :is-selected="isSelected" @click="routeTo(target)" :class="isSelectedClass" :label="label"
+      :icon="label" />
   </div>
 </template>
 
@@ -34,6 +35,4 @@ function routeTo(target) {
 
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

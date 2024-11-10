@@ -14,8 +14,8 @@
   justify-content: center;
 
   .homeView__content {
-    width: 380px;
-    height: 380px;
+    width: 320px;
+    height: 320px;
     padding: 40px;
 
     display: flex;
