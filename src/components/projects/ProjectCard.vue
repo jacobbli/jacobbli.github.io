@@ -1,16 +1,13 @@
 <template>
   <base-card :title="project.label">
-    <base-link v-if="project.github != ''" 
-      :is-primary-color="false" 
-      label="Github repo"
-      icon="Github"
-      @click="navigateTo(project.github)" />
+    <div class="projectCard__content">
+      <base-link v-if="project.github != ''" :is-primary-color="false" label="Github repo" icon="Github"
+        @click="navigateTo(project.github)" />
 
-    <base-link v-if="project.app != ''" 
-      :is-primary-color="false" 
-      label="App" 
-      @click="navigateTo(project.app)" />
+      <base-link v-if="project.app != ''" :is-primary-color="false" label="App" icon="App"
+        @click="navigateTo(project.app)" />
 
+    </div>
   </base-card>
 </template>
 
@@ -32,5 +29,9 @@ function navigateTo(target) {
 </script>
 
 <style lang="scss" scoped>
-
+.projectCard__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 </style>

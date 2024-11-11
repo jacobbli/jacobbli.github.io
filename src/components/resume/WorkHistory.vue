@@ -10,9 +10,16 @@
 <script setup>
 
 const employmentHistory = [
+{
+    "start_date": "2024.08",
+    "end_date": "Present",
+    "title": "Business Development Supervisor",
+    "company": "Vincent Medical Manufacturing. Co., Ltd.",
+    "location": "China"
+  },
   {
     "start_date": "2023.10",
-    "end_date": "Present",
+    "end_date": "2024.08",
     "title": "Sr Service Desk Analyst",
     "company": "Government of British Columbia",
     "location": "Canada"
