@@ -12,7 +12,5 @@ import SkillsGallery from "./skills/SkillsGallery.vue";
 .resumeView__container {
   display: grid;
   grid-template-columns: 200px 1fr;
-  // flex-direction: row;
-  // gap: 80px;
 }
 </style>

@@ -19,7 +19,6 @@ defineProps({
 .icon__main {
   display: flex;
   width: 20px;
-  // fill: v-bind(colorProp);
 }
 
 </style>

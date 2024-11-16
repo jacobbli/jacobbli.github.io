@@ -63,17 +63,5 @@ const employmentHistory = [
 </script>
 
 <style lang="scss" scoped>
-.workHistory__container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
 
-@media only screen and (min-width: 768px) {
-  .workHistory__container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-}
 </style>
