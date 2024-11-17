@@ -1,6 +1,9 @@
 <template>
   <div class="resumeView__container">
-    <side-bar :options="options.map(option => option.label)" :onSelect="selectOption" :selected-index="selectedIndex" />
+    <div class="resumeView__sidebar">
+      <side-bar :options="options.map(option => option.label)" :onSelect="selectOption"
+        :selected-index="selectedIndex" />
+    </div>
     <div class=resumeView__content>
       <component :is="options[selectedIndex]['component']" />
     </div>
@@ -41,5 +44,12 @@ function selectOption(index) {
 .resumeView__container {
   display: grid;
   grid-template-columns: 200px 1fr;
+
+  .resumeView__sidebar {
+    height: fit-content;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 120px;
+  }
 }
 </style>
