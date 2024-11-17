@@ -7,7 +7,8 @@
 
         <div class="baseTimelineItem__content">
             <div>{{ event.start_date }} — {{ event.end_date }}</div>
-            <div>{{ event.title }}</div>
+            <div><strong>{{ event.title }}</strong></div>
+            <div>{{ event.organization }}</div>
         </div>
     </div>
 </template>

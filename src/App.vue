@@ -1,5 +1,7 @@
 <template>
-  <the-header />
+  <div class="app__header">
+    <the-header />
+  </div>
   <div class="app__main">
     <router-view class="app__router" :key="$route.fullPath"></router-view>
   </div>
@@ -17,7 +19,7 @@ onMounted(() => {
 
 </script>
 
-<style>
+<style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Zen+Kurenaido&family=Varela+Round&family=Ubuntu");
 
 * {
@@ -43,14 +45,19 @@ body {
 }
 
 
-
-@media only screen and (min-width: 768px) {
-
-  .app__main {
-    height: calc(100% - 128px);
-    display: flex;
-    flex-direction: row;
-    gap: 120px;
-  }
+.app__main {
+  display: flex;
+  flex-direction: row;
+  gap: 120px;
+  padding-bottom: 40px;
 }
+
+.app__header {
+  padding-bottom: 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #def2e8;
+}
+
 </style>
