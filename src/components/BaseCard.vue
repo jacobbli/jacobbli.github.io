@@ -27,7 +27,7 @@ defineProps({
   padding: 16px;
   border-radius: 24px;
 
-  background-color: #2C734F;
-  color: #DFF2E9;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
 </style>

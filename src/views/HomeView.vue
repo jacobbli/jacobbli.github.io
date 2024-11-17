@@ -23,8 +23,8 @@
     justify-content: center;
     gap: 20px;
 
-    background-color: #2C734F;
-    color: #DFF2E9;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     border-radius: 50%;
     text-align: center;
   }

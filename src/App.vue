@@ -20,7 +20,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Zen+Kurenaido&family=Varela+Round&family=Ubuntu");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&family=Ubuntu");
 
 * {
   margin: 0;
@@ -28,10 +28,23 @@ onMounted(() => {
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color: #2C734F;
+  --secondary-color: #def2e8;
+  --tertiary-color: #9D5E56;
+
+  --header-font: "Varela Round", sans-serif;
+  --regular-font: "Ubuntu", sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: var(--header-font)
+}
+
 html,
 body {
   height: 100%;
-  background-color: #def2e8;
+  background-color: var(--secondary-color)
 }
 
 #app {
@@ -39,7 +52,7 @@ body {
   width: 90%;
   margin: 0 auto;
 
-  font-family: "Varela Round", sans-serif;
+  font-family: var(--regular-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -57,7 +70,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #def2e8;
+  background-color: var(--secondary-color);
 }
 
 </style>

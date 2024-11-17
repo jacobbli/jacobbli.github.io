@@ -51,7 +51,7 @@ const decorationLineClass = computed(() =>{
         display: flex;
 
         .baseTimelineItem__tick {
-            border: 5px solid #2C734F;
+            border: 5px solid var(--primary-color);
             border-radius: 50%;
             height: 5px;
             width: 5px;
@@ -60,7 +60,7 @@ const decorationLineClass = computed(() =>{
         }
 
         .baseTimelineItem__line {
-            background-color: #2C734F;
+            background-color: var(--primary-color);
             width: 4px;
             height: 100%;
 
@@ -70,7 +70,7 @@ const decorationLineClass = computed(() =>{
         }
 
         .baseTimelineItem__line__first {
-            background-color: #2C734F;
+            background-color: var(--primary-color);
             width: 4px;
             height: 100%;
 
@@ -80,7 +80,7 @@ const decorationLineClass = computed(() =>{
         }
 
         .baseTimelineItem__line__last {
-            background-color: #2C734F;
+            background-color: var(--primary-color);
             width: 4px;
             height: 50%;
 

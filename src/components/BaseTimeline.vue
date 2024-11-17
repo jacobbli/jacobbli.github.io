@@ -28,7 +28,7 @@ defineProps({
 }
 
 .baseTimeline_gap {
-  background-color: #2C734F;
+  background-color: var(--primary-color);
   width: 4px;
   height: 20px;
 

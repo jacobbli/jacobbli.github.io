@@ -73,37 +73,37 @@ const iconMap = {
 }
 
 .baseLink__isSelected {
-    background-color: #2C734F;
-    color: #def2e8;
-    fill: #def2e8;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    fill: var(--secondary-color);
 
 }
 
 .primaryColor {
-    color: #2C734F;
-    fill: #2C734F;
+    color: var(--primary-color);
+    fill: var(--primary-color);
 
 
     transition: background-color 0.5s, color 0.5s, fill 0.5s;
 
     &:hover {
-        background-color: #2C734F;
-        color: #def2e8;
-        fill: #def2e8;
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        fill: var(--secondary-color);
 
     }
 }
 
 .secondaryColor {
-    color: #def2e8;
-    fill: #def2e8;
+    color: var(--secondary-color);
+    fill: var(--secondary-color);
 
     transition: background-color 0.5s, color 0.5s, fill 0.5s;
 
     &:hover {
-        background-color: #def2e8;
-        color: #2C734F;
-        fill: #2C734F;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        fill: var(--primary-color);
     }
 }
 </style>

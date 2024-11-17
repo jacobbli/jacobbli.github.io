@@ -18,8 +18,7 @@ import NavBar from "./NavBar.vue";
 
   .theHeader__title {
     font-size: 48px;
-    font-family: "Varela Round", sans-serif;
-    color: #9D5E56
+    color: var(--tertiary-color);
   }
 }
 </style>
