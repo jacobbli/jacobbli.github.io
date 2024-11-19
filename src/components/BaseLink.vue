@@ -13,6 +13,8 @@ import HomeIcon from "./icons/HomeIcon.vue";
 import LightbulbIcon from "./icons/LightbulbIcon.vue";
 import GithubIcon from "./icons/GithubIcon.vue";
 import WebAssetIcon from "./icons/WebAssetIcon.vue";
+import LinkedinIcon from "./icons/LinkedinIcon.vue";
+import EmailIcon from "./icons/EmailIcon.vue";
 
 const props = defineProps({
     isSelected: {
@@ -56,7 +58,9 @@ const iconMap = {
     Projects: LightbulbIcon,
     Contact: ContactIcon,
     Github: GithubIcon,
-    App: WebAssetIcon
+    App: WebAssetIcon,
+    LinkedIn: LinkedinIcon,
+    Email: EmailIcon
 }
 
 </script>

@@ -1,16 +1,14 @@
 <template>
   <div class="contactDetailsView__container">
-    <div v-for="item in contactInfo" :key="item.content" class="contactDetailsView__content">
-      <component :is="item.icon" />
-      <base-link :label="item.content" @click="navigateTo(item.href)"/>
+    <div class="contactDetailsView__content">
+      <div v-for="item in contactInfo" :key="item.content">
+        <base-link :label="item.content" @click="navigateTo(item.href)" :icon="item.type" :is-primary-color="false" />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import EmailIcon from "../components/icons/EmailIcon.vue";
-import GithubIcon from "../components/icons/GithubIcon.vue";
-import LinkedinIcon from "../components/icons/LinkedinIcon.vue";
 import BaseLink from "@/components/BaseLink.vue";
 
 const contactInfo = [
@@ -18,19 +16,16 @@ const contactInfo = [
     content: "jacob@jacobli.me",
     href: "mailto:jacob@jacobli.me",
     type: "Email",
-    icon: EmailIcon
   },
   {
     content: "github.com/jacobbli",
     href: "https://github.com/jacobbli",
     type: "Github",
-    icon: GithubIcon
   },
   {
     content: "linkedin.com/in/jacobbli",
     href: "https://linkedin.com/in/jacobbli/",
     type: "LinkedIn",
-    icon: LinkedinIcon
   }
 ]
 
@@ -41,14 +36,24 @@ function navigateTo(target) {
 
 <style lang="scss" scoped>
 .contactDetailsView__container {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-
-  gap: 20px;
+  justify-content: center;
 
   .contactDetailsView__content {
+    height: fit-content;
+    padding: 40px;
+
     display: flex;
-    gap: 8px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 25px;
+    text-align: center;
+
   }
 }
 </style>

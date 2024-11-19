@@ -2,9 +2,7 @@
   <div class="app__header">
     <the-header />
   </div>
-  <div class="app__main">
-    <router-view class="app__router" :key="$route.fullPath"></router-view>
-  </div>
+  <router-view class="app__router" :key="$route.fullPath"></router-view>
 </template>
 
 <script setup>
@@ -37,7 +35,9 @@ onMounted(() => {
   --regular-font: "Ubuntu", sans-serif;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--header-font)
 }
 
@@ -57,12 +57,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.app__router {
+  height: calc(100vh - 120px);
 
-.app__main {
-  display: flex;
-  flex-direction: row;
-  gap: 120px;
-  padding-bottom: 40px;
 }
 
 .app__header {
@@ -72,5 +69,4 @@ body {
   z-index: 1;
   background-color: var(--secondary-color);
 }
-
 </style>
