@@ -1,12 +1,12 @@
 <template>
     <div class="baseTimelineItem__container">
+        <div class="baseTimeLineItem__date">{{ event.start_date }} — {{ event.end_date }}</div>
         <div class="baseTimelineItem__decoration">
             <div class="baseTimelineItem__tick"></div>
             <div :class="decorationLineClass"></div>
         </div>
 
         <div class="baseTimelineItem__content">
-            <div>{{ event.start_date }} — {{ event.end_date }}</div>
             <div><strong>{{ event.title }}</strong></div>
             <div>{{ event.organization }}</div>
         </div>
@@ -31,8 +31,8 @@ const props = defineProps({
     }
 })
 
-const decorationLineClass = computed(() =>{
-    if (props.isFirst) return "baseTimelineItem__line__first" 
+const decorationLineClass = computed(() => {
+    if (props.isFirst) return "baseTimelineItem__line__first"
     if (props.isLast) return "baseTimelineItem__line__last"
     return "baseTimelineItem__line"
 })
@@ -41,10 +41,13 @@ const decorationLineClass = computed(() =>{
 
 <style lang="scss" scoped>
 .baseTimelineItem__container {
-    position: relative;
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 140px auto 1fr;
     column-gap: 12px;
+
+    .baseTimeLineItem__date {
+        align-content: center;
+    }
 
     .baseTimelineItem__decoration {
         position: relative;

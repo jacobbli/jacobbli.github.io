@@ -1,9 +1,12 @@
 <template>
-  <div class="baseTimeline__Container">
-    <div class="baseTimeline_content" v-for="(event, index) in events" :key="event.title + event.dates">
+  <div class="baseTimeline__container">
+    <div v-for="(event, index) in events" :key="event.title + event.dates">
       <base-timeline-item :event="event" :is-first="index == 0" :is-last="index == events.length - 1" />
 
-      <div v-if="index != events.length - 1" class="baseTimeline_gap"></div>
+      <div v-if="index != events.length - 1" class="baseTimeline__gap">
+        <div></div>
+        <div class="baseTimeline__gapDecoration"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -14,7 +17,7 @@ import BaseTimelineItem from './BaseTimelineItem.vue';
 
 defineProps({
   events: {
-    type: [],
+    type: Array,
     required: true
   }
 })
@@ -22,15 +25,16 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
-.baseTimeline__Container {
-  display: flex;
-  flex-direction: column;
+.baseTimeline__gap {
+  display: grid;
+    grid-template-columns: 140px auto;
+    column-gap: 12px;
 }
 
-.baseTimeline_gap {
+.baseTimeline__gapDecoration {
   background-color: var(--primary-color);
   width: 4px;
-  height: 20px;
+  height: 32px;
 
   position: relative;
   left: 3px;
