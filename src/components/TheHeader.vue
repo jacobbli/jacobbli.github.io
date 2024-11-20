@@ -13,6 +13,7 @@ import NavBar from "./NavBar.vue";
 .theHeader__container {
   height: 80px;
   display: flex;
+  flex-wrap: wrap;
   align-items: last baseline;
   justify-content: space-between;
 

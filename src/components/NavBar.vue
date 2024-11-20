@@ -49,6 +49,7 @@ const routes = [
 <style lang="scss" scoped>
 .navBar__container {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 }
 </style>

@@ -51,5 +51,10 @@ function selectOption(index) {
     position: sticky;
     top: 120px;
   }
+
+  .resumeView__content{
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>

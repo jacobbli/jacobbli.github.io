@@ -49,7 +49,6 @@ body {
 
 #app {
   height: 100%;
-  width: 90%;
   margin: 0 auto;
 
   font-family: var(--regular-font);
@@ -57,16 +56,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.app__router {
-  height: calc(100vh - 120px);
-
-}
-
 .app__header {
-  padding-bottom: 40px;
+  padding: 0 48px;
+  height: 120px;
   position: sticky;
   top: 0;
   z-index: 1;
   background-color: var(--secondary-color);
 }
+
+.app__router {
+  height: calc(100vh - 120px);
+  padding: 40px 48px 20px 48px;
+}
+
 </style>
