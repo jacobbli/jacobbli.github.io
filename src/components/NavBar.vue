@@ -1,45 +1,27 @@
 <template>
   <div class="navBar__container">
-    <nav-bar-item v-for="route in routes" :key="route.label" 
-      :target="route.target" 
-      :label="route.label"
-      :is-selected="currentRoute == route.label"
-    />
+    <base-nav-menu class="navBar__content" :options="routes" />
   </div>
 </template>
 
 <script setup>
-import { defineProps, computed } from "vue";
-import NavBarItem from "./NavBarItem.vue";
-
-import { useRoute } from "vue-router";
-
-const route = useRoute();
-
-const currentRoute = computed(() => route.name);
-
-defineProps({
-  showContact: {
-    type: Boolean,
-    default: true,
-  },
-});
+import BaseNavMenu from "./BaseNavMenu.vue";
 
 const routes = [
   {
-    target: '/',
+    target: '/home',
     label: "Home"
   },
   {
-    target: 'projects',
+    target: '/projects',
     label: "Projects"
   },
   {
-    target: 'resume',
+    target: '/resume/skills',
     label: "Resume"
   },
   {
-    target: 'contact',
+    target: '/contact',
     label: "Contact"
   },
 ]
@@ -47,7 +29,7 @@ const routes = [
 </script>
 
 <style lang="scss" scoped>
-.navBar__container {
+.navBar__content {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;

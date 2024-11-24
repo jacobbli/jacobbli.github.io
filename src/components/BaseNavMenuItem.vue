@@ -1,16 +1,20 @@
 <template>
   <div class="navItem__container">
-    <base-link :is-selected="isSelected" @click="routeTo(target)" :class="isSelectedClass" :label="label"
-      :icon="label" />
+    <base-link @click="routeTo(target)" 
+      :label="label"
+      :icon="label"
+      :is-primary-color="isPrimaryColor"
+      :is-selected="isSelected" 
+      />
   </div>
 </template>
 
 <script setup>
-import { defineProps, computed } from "vue";
+import { defineProps } from "vue";
 import BaseLink from "./BaseLink.vue";
 import router from "@/router/router";
 
-const props = defineProps({
+defineProps({
   target: {
     type: String,
     required: true,
@@ -23,11 +27,11 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  isPrimaryColor: {
+    type: Boolean,
+    default: true,
+  }
 });
-
-const isSelectedClass = computed(() =>
-  props.isSelected ? "navItem__isSelected" : ""
-);
 
 function routeTo(target) {
   router.push(target)

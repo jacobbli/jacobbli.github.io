@@ -12,7 +12,7 @@
 .baseGallery__container {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;  
   justify-content: center;
+  gap: 16px;
 }
 </style>

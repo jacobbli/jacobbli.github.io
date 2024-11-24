@@ -20,11 +20,3 @@ defineProps({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-.projectsList__container {
-  display: flex;
-  gap: 16px;
-  justify-content: space-evenly;
-}
-</style>

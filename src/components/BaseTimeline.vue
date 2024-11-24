@@ -27,8 +27,8 @@ defineProps({
 <style lang="scss" scoped>
 .baseTimeline__gap {
   display: grid;
-    grid-template-columns: 140px auto;
-    column-gap: 12px;
+  grid-template-columns: 300px auto 300px;
+  column-gap: 12px;
 }
 
 .baseTimeline__gapDecoration {

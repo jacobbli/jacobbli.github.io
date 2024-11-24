@@ -39,8 +39,11 @@ const props = defineProps({
     }
 });
 
-const isSelectedClass = computed(() =>
-    props.isSelected ? "baseLink__isSelected" : ""
+const isSelectedClass = computed(() => {
+    if (props.isSelected && props.isPrimaryColor) return "baseLink__isSelected__primaryColor"
+    if (props.isSelected && !props.isPrimaryColor) return "baseLink__isSelected__secondaryColor"
+    return ""
+}
 );
 
 const colorClass = computed(
@@ -72,21 +75,30 @@ const iconMap = {
     width: fit-content;
     padding: 4px 8px 4px 8px;
     border-radius: 20px;
+    align-items: end;
 
     cursor: pointer;
 }
 
 .baseLink__isSelected {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    fill: var(--secondary-color);
 
+    &__primaryColor {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        fill: var(--secondary-color);
+    }
+
+    &__secondaryColor {
+        background-color: white;
+        color: var(--primary-color);
+        fill: var(--primary-color);
+
+    }
 }
 
 .primaryColor {
     color: var(--primary-color);
     fill: var(--primary-color);
-
 
     transition: background-color 0.5s, color 0.5s, fill 0.5s;
 

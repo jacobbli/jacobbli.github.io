@@ -2,7 +2,10 @@
   <div class="app__header">
     <the-header />
   </div>
-  <router-view class="app__router" :key="$route.fullPath"></router-view>
+  <div class="app__router">
+    <router-view :key="$route.fullPath"></router-view>
+
+  </div>
 </template>
 
 <script setup>
@@ -67,7 +70,8 @@ body {
 
 .app__router {
   height: calc(100vh - 120px);
-  padding: 40px 48px 20px 48px;
+  padding: 28px 48px 20px 48px;
+  overflow: hidden;
 }
 
 </style>

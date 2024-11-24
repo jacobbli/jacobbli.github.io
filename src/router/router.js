@@ -3,10 +3,14 @@ import ProjectsView from "../views/ProjectsView.vue";
 import ResumeView from "../views/ResumeView.vue";
 import ContactDetailsView from "../views/ContactDetailsView.vue";
 import HomeView from "@/views/HomeView.vue";
+import SkillsSection from "@/components/resume/SkillsSection.vue";
+import WorkHistory from "@/components/resume/WorkHistory.vue";
+import EducationHistory from "@/components/resume/EducationHistory.vue";
 
 const routes = [
+  { path: '/', redirect: '/home' },
   {
-    path: "/",
+    path: "/home",
     name: "Home",
     component: HomeView
   },
@@ -18,7 +22,22 @@ const routes = [
   {
     path: "/resume",
     name: "Resume",
-    component: ResumeView
+    component: ResumeView,
+    children: [
+      {
+        path: "skills",
+        name: "Skills",
+        component: SkillsSection,
+      },  {
+        path: "employment",
+        name: "Employment",
+        component: WorkHistory,
+      },  {
+        path: "education",
+        name: "Education",
+        component: EducationHistory,
+      },
+    ]
   },
   {
     path: "/contact",

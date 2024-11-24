@@ -42,11 +42,12 @@ const decorationLineClass = computed(() => {
 <style lang="scss" scoped>
 .baseTimelineItem__container {
     display: grid;
-    grid-template-columns: 140px auto 1fr;
+    grid-template-columns: 300px auto 300px;
     column-gap: 12px;
 
     .baseTimeLineItem__date {
         align-content: center;
+        text-align: end
     }
 
     .baseTimelineItem__decoration {
