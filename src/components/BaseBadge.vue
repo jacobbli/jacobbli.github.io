@@ -14,7 +14,7 @@ const props = defineProps({
 
 const borderStyle = computed(() =>
   props.color
-    ? `border: 1pt ${props.color} solid; background-color: ${props.color}1e;`
+    ? `border: 1pt ${props.color} solid; background-color: ${props.color}7e;`
     : `border: 1pt gray solid; background-color: #ffffff1e;`
 );
 </script>
