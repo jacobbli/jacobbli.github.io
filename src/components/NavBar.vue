@@ -32,6 +32,12 @@ const routes = [
 .navBar__content {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 4px;
+}
+
+@media only screen and (min-width: 768px) {
+  .navBar__content {
+    gap: 16px;
+  }
 }
 </style>

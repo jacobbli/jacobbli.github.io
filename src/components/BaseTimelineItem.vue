@@ -42,7 +42,7 @@ const decorationLineClass = computed(() => {
 <style lang="scss" scoped>
 .baseTimelineItem__container {
     display: grid;
-    grid-template-columns: 300px auto 300px;
+    grid-template-columns: 45% auto 45%;
     column-gap: 12px;
 
     .baseTimeLineItem__date {

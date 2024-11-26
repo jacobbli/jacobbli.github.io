@@ -20,7 +20,7 @@ defineProps({
 
 <style lang="scss" scoped>
 .baseCard__container {
-  width: 280px;
+  width: 80%;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -29,5 +29,11 @@ defineProps({
 
   background-color: var(--primary-color);
   color: var(--secondary-color);
+}
+
+@media only screen and (min-width: 768px) {
+  .baseCard__container {
+    width: 280px;
+  }
 }
 </style>

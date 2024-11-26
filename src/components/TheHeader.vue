@@ -11,15 +11,22 @@ import NavBar from "./NavBar.vue";
 </script>
 <style lang="scss" scoped>
 .theHeader__container {
-  height: 80px;
   display: flex;
   flex-wrap: wrap;
   align-items: last baseline;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 16px;
 
   .theHeader__title {
     font-size: 48px;
     color: var(--tertiary-color);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .theHeader__container {
+    height: 80px;
+    justify-content: space-between;
   }
 }
 </style>
