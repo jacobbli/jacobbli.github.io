@@ -29,8 +29,9 @@ const contactInfo = [
   }
 ]
 
-function navigateTo(target) {
-  window.open(target)
+function navigateTo(url) {
+  const target = url.includes("mailto") ? "_self" : "_blank"
+  window.open(url, target)
 }
 </script>
 
