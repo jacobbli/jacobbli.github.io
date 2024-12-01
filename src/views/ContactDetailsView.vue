@@ -13,8 +13,8 @@ import BaseLink from "@/components/BaseLink.vue";
 
 const contactInfo = [
   {
-    content: "jacob@jacobli.me",
-    href: "mailto:jacob@jacobli.me",
+    content: "hello@jacobli.me",
+    href: "mailto:hello@jacobli.me",
     type: "Email",
   },
   {
