@@ -27,8 +27,9 @@ defineProps({
   padding: 16px;
   border-radius: 24px;
 
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  outline: var(--primary-color) solid 2px;
 }
 
 @media only screen and (min-width: 768px) {

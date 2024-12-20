@@ -1,10 +1,10 @@
 <template>
   <base-card :title="project.label">
     <div class="projectCard__content">
-      <base-link v-if="project.github != ''" :is-primary-color="false" label="Github repo" icon="Github"
+      <base-link v-if="project.github != ''" :is-primary-color="true" label="Github repo" icon="Github"
         @click="navigateTo(project.github)" />
 
-      <base-link v-if="project.app != ''" :is-primary-color="false" label="App" icon="App"
+      <base-link v-if="project.app != ''" :is-primary-color="true" label="App" icon="App"
         @click="navigateTo(project.app)" />
 
     </div>
