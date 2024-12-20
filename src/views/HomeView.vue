@@ -9,6 +9,8 @@
 
 <style lang="scss" scoped>
 .homeView__container {
+  position: relative;
+  top: 40px;
   width: 100%;
   display: flex;
   justify-content: center;

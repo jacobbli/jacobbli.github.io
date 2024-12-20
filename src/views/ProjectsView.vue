@@ -12,6 +12,8 @@ import ProjectGallery from "@/components/projects/ProjectGallery.vue";
 
 <style lang="scss" scoped>
 .projectsView__container {
+  position: relative;
+  top: 40px;
   width: 100%;
   display: flex;
   flex-direction: column;

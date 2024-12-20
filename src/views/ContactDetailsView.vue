@@ -40,6 +40,8 @@ function navigateTo(url) {
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
+  top: 40px;
 
   .contactDetailsView__content {
     height: fit-content;

@@ -61,26 +61,15 @@ body {
 
 .app__header {
   padding: 24px 0;
-  height: 120px;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   background-color: var(--secondary-color);
-}
-
-.app__router {
-  height: calc(100vh - 120px);
-  padding: 48px 0 24px 0;
 }
 
 @media only screen and (min-width: 768px) {
   .app__header {
-    padding: 0 48px;
-  }
-
-  .app__router {
-    padding: 28px 48px 20px 48px;
-    overflow: hidden;
+    padding: 0 48px 12px 48px;
   }
 }
 </style>

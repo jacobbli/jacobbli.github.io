@@ -1,7 +1,9 @@
 <template>
   <div class="resumeView__container">
     <resume-menu class="resumeView__menu" />
-    <router-view />
+    <div class="resumeView__content">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -17,13 +19,24 @@ import ResumeMenu from '@/components/ResumeMenu.vue';
   flex-direction: column;
   align-items: center;
   gap: 24px;
+}
 
-  overflow: auto;
+.resumeView__menu {
+  position: sticky;
+  top: 160px;
+  z-index: 1;
+}
 
+.resumeView__content {
+  position: relative;
+  top: 40px;
+  padding-bottom: 24px;
+}
+
+
+@media only screen and (min-width: 768px) {
   .resumeView__menu {
-    position: sticky;
-    top: 0;
-    z-index: 99;
+    top: 110px;
   }
 }
 </style>
