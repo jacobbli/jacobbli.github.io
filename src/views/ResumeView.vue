@@ -29,7 +29,7 @@ import ResumeMenu from '@/components/ResumeMenu.vue';
 
 .resumeView__content {
   position: relative;
-  top: 40px;
+  top: 10px;
   padding-bottom: 24px;
 }
 

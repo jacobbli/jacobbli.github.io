@@ -1,7 +1,7 @@
 <template>
   <div class="theHeader__container" :class="headerAlignmentClass">
     <h1 v-if="!isHome" class="theHeader__title">Jacob Li</h1>
-    <nav-bar :show-contact="false" />
+    <nav-bar />
   </div>
 </template>
 

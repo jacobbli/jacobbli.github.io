@@ -53,7 +53,7 @@ body {
 #app {
   height: 100%;
   margin: 0 auto;
-  padding: 24px 12px 0 12px;
+  padding: 24px 8px 0 8px;
 
   font-family: var(--regular-font);
   -webkit-font-smoothing: antialiased;
@@ -61,7 +61,7 @@ body {
 }
 
 .app__header {
-  padding-bottom: 24px;
+  padding-bottom: 12px;
   position: sticky;
   top: 24px;
   z-index: 2;
