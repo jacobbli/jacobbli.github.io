@@ -2,7 +2,7 @@
   <div class="homeView__container">
     <div class="homeView__content">
       <h1>Hi!</h1>
-      <p>I'm <span class="homeView__name">Jacob Li</span>.</p>
+      <p>I'm <span class="homeView__name">Jacob</span>.</p>
       <p>I'm a techie with a passion for business process automation.</p>
       <p>I love using technology to help people work more efficiently.</p>
     </div>
@@ -12,7 +12,7 @@
 <style lang="scss" scoped>
 .homeView__container {
   position: relative;
-  top: 40px;
+  top: 20px;
 
   display: flex;
   justify-content: center;

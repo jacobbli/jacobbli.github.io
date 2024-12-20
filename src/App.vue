@@ -4,7 +4,6 @@
   </div>
   <div class="app__router">
     <router-view :key="$route.fullPath"></router-view>
-
   </div>
 </template>
 
@@ -53,7 +52,7 @@ body {
 #app {
   height: 100%;
   margin: 0 auto;
-  padding: 24px 8px 0 8px;
+  padding: 0 8px;
 
   font-family: var(--regular-font);
   -webkit-font-smoothing: antialiased;
@@ -61,16 +60,19 @@ body {
 }
 
 .app__header {
-  padding-bottom: 12px;
+  height: 120px;
+  width: 100%;
+  padding: 20px 0;
   position: sticky;
-  top: 24px;
+  top: 0;
   z-index: 2;
+
   background-color: var(--secondary-color);
 }
 
 @media only screen and (min-width: 768px) {
   #app {
-    padding: 24px 48px 0 48px;
+    padding: 0 48px;
   }
 }
 </style>

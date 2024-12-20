@@ -1,38 +1,34 @@
 <template>
-  <div class="theHeader__container" :class="headerAlignmentClass">
-    <h1 v-if="!isHome" class="theHeader__title">Jacob Li</h1>
+  <div class="theHeader__container">
+    <div class="theHeader__title">Jacob Li</div>
     <nav-bar />
   </div>
 </template>
 
 <script setup>
-import { computed } from "vue";
 import NavBar from "./NavBar.vue";
-import router from "@/router/router";
-
-const isHome = computed(() => router.currentRoute.value.name == 'Home')
-const headerAlignmentClass= computed(() => !isHome.value ? "theHeader__spaceBetween" : "")
 
 </script>
 <style lang="scss" scoped>
 .theHeader__container {
+  width: 100%;
+  height: 100%;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px;
+  align-items: center;
 
   .theHeader__title {
-    font-size: 48px;
+    font-size: 32px;
     color: var(--tertiary-color);
+    font-family: var(--header-font);
+    font-weight: bold;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .theHeader__container {
-    justify-content: end;
-  }
-
-  .theHeader__spaceBetween {
     justify-content: space-between;
   }
 }

@@ -41,7 +41,7 @@ function navigateTo(url) {
   display: flex;
   justify-content: center;
   position: relative;
-  top: 40px;
+  top: 20px;
 
   .contactDetailsView__content {
     height: fit-content;

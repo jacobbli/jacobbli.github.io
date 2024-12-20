@@ -18,25 +18,20 @@ import ResumeMenu from '@/components/ResumeMenu.vue';
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+
+  position: relative;
 }
 
 .resumeView__menu {
   position: sticky;
-  top: 160px;
+  top: 140px;
   z-index: 1;
 }
 
 .resumeView__content {
   position: relative;
-  top: 10px;
+  top: 32px;
   padding-bottom: 24px;
 }
 
-
-@media only screen and (min-width: 768px) {
-  .resumeView__menu {
-    top: 110px;
-  }
-}
 </style>
