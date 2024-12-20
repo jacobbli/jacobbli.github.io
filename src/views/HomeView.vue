@@ -2,7 +2,9 @@
   <div class="homeView__container">
     <div class="homeView__content">
       <h1>Hi!</h1>
-      <p>I'm a techie with a passion for automation. I love finding ways to help people work more efficiently.</p>
+      <p>I'm <span class="homeView__name">Jacob Li</span>.</p>
+      <p>I'm a techie with a passion for business process automation.</p>
+      <p>I love using technology to help people work more efficiently.</p>
     </div>
   </div>
 </template>
@@ -11,24 +13,40 @@
 .homeView__container {
   position: relative;
   top: 40px;
-  width: 100%;
+
   display: flex;
   justify-content: center;
 
   .homeView__content {
-    width: 320px;
-    height: 320px;
-    padding: 40px;
+    max-width: 600px;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 20px;
 
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border-radius: 50%;
-    text-align: center;
+    color: var(--primary-color);
+    font-family: var(--header-font);
+
+    h1 {
+      font-size: 52px;
+    }
+
+    p {
+      font-size: 32px;
+      line-height: 1.5;
+    }
+
+    .homeView__name {
+      color: var(--tertiary-color);
+      font-weight: bold;
+      font-size: 40px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .homeView__container {
+    justify-content: left;
   }
 }
 </style>

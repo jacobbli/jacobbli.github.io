@@ -53,6 +53,7 @@ body {
 #app {
   height: 100%;
   margin: 0 auto;
+  padding: 24px 12px 0 12px;
 
   font-family: var(--regular-font);
   -webkit-font-smoothing: antialiased;
@@ -60,16 +61,16 @@ body {
 }
 
 .app__header {
-  padding: 24px 0;
+  padding-bottom: 24px;
   position: sticky;
-  top: 0;
+  top: 24px;
   z-index: 2;
   background-color: var(--secondary-color);
 }
 
 @media only screen and (min-width: 768px) {
-  .app__header {
-    padding: 0 48px 12px 48px;
+  #app {
+    padding: 24px 48px 0 48px;
   }
 }
 </style>
