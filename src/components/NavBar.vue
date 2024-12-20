@@ -32,6 +32,7 @@ const routes = [
 .navBar__content {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 4px;
 }
 
