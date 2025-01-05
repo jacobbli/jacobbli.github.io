@@ -89,7 +89,7 @@ const iconMap = {
     }
 
     &__secondaryColor {
-        background-color: white;
+        background-color: var(--secondary-color);
         color: var(--primary-font-color);
         fill: var(--primary-font-color);
     }
