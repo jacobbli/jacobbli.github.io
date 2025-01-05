@@ -84,42 +84,40 @@ const iconMap = {
 
     &__primaryColor {
         background-color: var(--primary-color);
-        color: var(--secondary-color);
-        fill: var(--secondary-color);
+        color: var(--secondary-font-color);
+        fill: var(--secondary-font-color);
     }
 
     &__secondaryColor {
         background-color: white;
-        color: var(--primary-color);
-        fill: var(--primary-color);
-
+        color: var(--primary-font-color);
+        fill: var(--primary-font-color);
     }
 }
 
 .primaryColor {
-    color: var(--primary-color);
-    fill: var(--primary-color);
+    color: var(--primary-font-color);
+    fill: var(--primary-font-color);
 
     transition: background-color 0.5s, color 0.5s, fill 0.5s;
 
     &:hover {
         background-color: var(--primary-color);
-        color: var(--secondary-color);
-        fill: var(--secondary-color);
-
+        color: var(--secondary-font-color);
+        fill: var(--secondary-font-color);
     }
 }
 
 .secondaryColor {
-    color: var(--secondary-color);
-    fill: var(--secondary-color);
+    color: var(--secondary-font-color);
+    fill: var(--secondary-font-color);
 
     transition: background-color 0.5s, color 0.5s, fill 0.5s;
 
     &:hover {
         background-color: var(--secondary-color);
-        color: var(--primary-color);
-        fill: var(--primary-color);
+        color: var(--primary-font-color);
+        fill: var(--primary-font-color);
     }
 }
 </style>

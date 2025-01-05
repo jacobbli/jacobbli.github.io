@@ -31,7 +31,10 @@ onMounted(() => {
 :root {
   --primary-color: #2C734F;
   --secondary-color: #def2e8;
-  --tertiary-color: #9D5E56;
+
+  --primary-font-color: #2C734F;
+  --secondary-font-color: #def2e8;
+  --highlight-color: #8C6039;
 
   --header-font: "Varela Round", sans-serif;
   --regular-font: "Ubuntu", sans-serif;
@@ -46,7 +49,7 @@ h3 {
 html,
 body {
   height: 100%;
-  background-color: var(--secondary-color)
+  background-color: white
 }
 
 #app {
@@ -67,7 +70,7 @@ body {
   top: 0;
   z-index: 2;
 
-  background-color: var(--secondary-color);
+  background-color: white;
 }
 
 @media only screen and (min-width: 768px) {
