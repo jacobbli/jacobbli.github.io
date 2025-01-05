@@ -1,6 +1,6 @@
 <template>
   <div class="app__header">
-    <the-header />
+    <the-header :is-mobile="isMobile"/>
   </div>
   <div class="app__router">
     <router-view :key="$route.fullPath"></router-view>
@@ -75,7 +75,33 @@ body {
 
 @media only screen and (min-width: 768px) {
   #app {
-    padding: 0 48px;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    padding: 0;
+
+    overflow: hidden;
+
+    .app__header {
+      height: 100%;
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      padding-top: 40px;
+    }
+
+    .app__router {
+      height: 100%;
+      width: 100%;
+
+      padding: 40px 20px 20px 20px;
+
+      overflow: auto;
+    }
   }
 }
 </style>

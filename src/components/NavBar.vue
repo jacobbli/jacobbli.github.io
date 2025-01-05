@@ -5,26 +5,22 @@
 </template>
 
 <script setup>
+import { onMounted, ref, defineProps } from "vue";
 import BaseNavMenu from "./BaseNavMenu.vue";
 
-const routes = [
-  {
-    target: '/home',
-    label: "Home"
-  },
-  {
-    target: '/projects',
-    label: "Projects"
-  },
-  {
-    target: '/resume/skills',
-    label: "Resume"
-  },
-  {
-    target: '/contact',
-    label: "Contact"
-  },
-]
+import { getRoutes } from "@/api/api";
+
+const props = defineProps({
+  isMobile: {
+    type: Boolean,
+    default: false
+  }
+})
+const routes = ref([])
+
+onMounted(async() => {
+  routes.value = await getRoutes(props.isMobile)
+})
 
 </script>
 
@@ -33,12 +29,13 @@ const routes = [
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 4px;
 }
 
 @media only screen and (min-width: 768px) {
   .navBar__content {
-    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 }
 </style>

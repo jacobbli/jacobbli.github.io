@@ -75,7 +75,7 @@ const iconMap = {
     width: fit-content;
     padding: 4px 8px 4px 8px;
     border-radius: 20px;
-    align-items: end;
+    align-items: flex-end;
 
     cursor: pointer;
 }

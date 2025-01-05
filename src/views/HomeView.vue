@@ -24,6 +24,7 @@
 
     color: var(--primary-font-color);
     font-family: var(--header-font);
+    text-align: center;
 
     h1 {
       font-size: 52px;
@@ -39,6 +40,10 @@
 @media only screen and (min-width: 768px) {
   .homeView__container {
     justify-content: left;
+
+    .homeView__content{
+      text-align: left;
+    }
   }
 }
 </style>

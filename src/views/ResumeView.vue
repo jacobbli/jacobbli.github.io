@@ -34,4 +34,9 @@ import ResumeMenu from '@/components/ResumeMenu.vue';
   padding-bottom: 24px;
 }
 
+@media only screen and (min-width: 768px) {
+  .resumeView__menu {
+    top: 20px;
+  }
+}
 </style>

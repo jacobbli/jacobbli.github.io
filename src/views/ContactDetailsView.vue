@@ -9,25 +9,17 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
+
 import BaseLink from "@/components/BaseLink.vue";
 
-const contactInfo = [
-  {
-    content: "hello@jacobli.me",
-    href: "mailto:hello@jacobli.me",
-    type: "Email",
-  },
-  {
-    content: "github.com/jacobbli",
-    href: "https://github.com/jacobbli",
-    type: "Github",
-  },
-  {
-    content: "linkedin.com/in/jacobbli",
-    href: "https://linkedin.com/in/jacobbli/",
-    type: "LinkedIn",
-  }
-]
+import { getContactInfo } from "@/api/api";
+
+const contactInfo = ref([])
+
+onMounted(async () => {
+  contactInfo.value = await getContactInfo()
+})
 
 function navigateTo(url) {
   const target = url.includes("mailto") ? "_self" : "_blank"
