@@ -32,6 +32,12 @@ const contactInfo = ref([])
 onMounted(async () => {
   contactInfo.value = await getContactInfo()
 })
+
+function navigateTo(url) {
+  const target = url.includes("mailto") ? "_self" : "_blank"
+  window.open(url, target)
+}
+
 </script>
 <style lang="scss" scoped>
 .theHeader__container {
