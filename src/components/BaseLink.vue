@@ -1,7 +1,7 @@
 <template>
     <div class="baseLink__content" :class="[isSelectedClass, colorClass]">
         <component :is="iconMap[icon]" />
-        <div>{{ label }}</div>
+        <slot></slot>
     </div>
 </template>
 
@@ -24,14 +24,6 @@ const props = defineProps({
     isPrimaryColor: {
         type: Boolean,
         default: true,
-    },
-    url: {
-        type: String,
-        default: ""
-    },
-    label: {
-        type: String,
-        default: ""
     },
     icon: {
         type: String,

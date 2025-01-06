@@ -1,13 +1,13 @@
 <template>
   <div class="baseNavMenu__container" :class="colorClass">
-    <base-nav-menu-item v-for="option in options" :key="option.label" :target="option.target" :label="option.label"
+    <internal-link v-for="option in options" :key="option.label" :target="option.target" :label="option.label"
       :is-primary-color="isPrimaryColor" :is-selected="currentPath.includes(option.label.toLowerCase())" />
   </div>
 </template>
 
 <script setup>
 import { computed, defineProps } from "vue";
-import BaseNavMenuItem from "./BaseNavMenuItem.vue";
+import InternalLink from "./InternalLink.vue";
 import router from "@/router/router";
 
 const props = defineProps({

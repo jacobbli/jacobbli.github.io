@@ -7,7 +7,7 @@
 
     <div v-if="!isMobile" class="theHeader__contactInfo">
       <div v-for="item in contactInfo" :key="item.content">
-        <base-link :label="item.content" @click="navigateTo(item.href)" :icon="item.type" :is-primary-color="true" />
+        <external-link :label="item.content" :href="item.href" :icon="item.type" :is-primary-color="true" />
       </div>
     </div>
   </div>
@@ -16,7 +16,7 @@
 <script setup>
 import { defineProps, ref, onMounted } from "vue";
 import NavBar from "./NavBar.vue";
-import BaseLink from "@/components/BaseLink.vue";
+import ExternalLink from "@/components/ExternalLink.vue";
 
 import { getContactInfo } from "@/api/api";
 
@@ -32,11 +32,6 @@ const contactInfo = ref([])
 onMounted(async () => {
   contactInfo.value = await getContactInfo()
 })
-
-function navigateTo(url) {
-  const target = url.includes("mailto") ? "_self" : "_blank"
-  window.open(url, target)
-}
 
 </script>
 <style lang="scss" scoped>

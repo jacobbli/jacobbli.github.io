@@ -1,18 +1,14 @@
 <template>
-  <div class="navItem__container">
-    <base-link @click="routeTo(target)" 
-      :label="label"
-      :icon="label"
-      :is-primary-color="isPrimaryColor"
-      :is-selected="isSelected" 
-      />
-  </div>
+  <RouterLink class="internalLink__container" :to="target">
+    <base-link  :icon="label" :is-primary-color="isPrimaryColor" :is-selected="isSelected">
+      <div>{{ label }}</div>
+    </base-link>
+  </RouterLink>
 </template>
 
 <script setup>
 import { defineProps } from "vue";
 import BaseLink from "./BaseLink.vue";
-import router from "@/router/router";
 
 defineProps({
   target: {
@@ -33,10 +29,10 @@ defineProps({
   }
 });
 
-function routeTo(target) {
-  router.push(target)
-}
-
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.internalLink__container {
+  text-decoration: none;
+}
+</style>
