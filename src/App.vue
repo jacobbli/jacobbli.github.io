@@ -1,15 +1,21 @@
 <template>
   <div class="app__header">
-    <the-header :is-mobile="isMobile"/>
+    <the-header :is-mobile="isMobile" />
   </div>
   <div class="app__router">
     <router-view :key="$route.fullPath"></router-view>
+  </div>
+  <div v-if="isMobile">
+    <contact-details-toggle @click="toggleModal" :is-visible="isModalVisible" class="app__contactDetailsToggle" />
+    <contact-details-modal v-if="isModalVisible" class="app__contactDetailsModal" />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 import TheHeader from "./components/TheHeader.vue";
+import ContactDetailsToggle from "./components/contactDetails/ContactDetailsToggle.vue";
+import ContactDetailsModal from './components/contactDetails/ContactDetailsModal.vue';
 
 const isMobile = ref(screen.width < 768);
 
@@ -17,6 +23,12 @@ onMounted(() => {
   window.onresize = () => (isMobile.value = screen.width < 768);
 });
 
+
+const isModalVisible = ref(false)
+
+function toggleModal() {
+  isModalVisible.value = !isModalVisible.value
+}
 </script>
 
 <style lang="scss">
@@ -71,6 +83,20 @@ body {
   z-index: 2;
 
   background-color: white;
+}
+
+.app__contactDetailsToggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.app__contactDetailsModal {
+  position: fixed;
+  right: 60px;
+  bottom: 60px;
+
+  filter: drop-shadow(0px 0px 4px rgb(0, 0, 0));
 }
 
 @media only screen and (min-width: 768px) {

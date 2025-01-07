@@ -18,8 +18,8 @@ export function getContactInfo() {
   ]
 }
 
-export function getRoutes(isMobile) {
-  const routes = [
+export function getRoutes() {
+  return [
     {
       target: '/home',
       label: "Home"
@@ -33,10 +33,4 @@ export function getRoutes(isMobile) {
       label: "Resume"
     }
   ]
-
-
-  return isMobile ? routes.concat({
-    target: '/contact',
-    label: "Contact"
-  }) : routes
 }

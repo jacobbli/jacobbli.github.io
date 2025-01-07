@@ -5,21 +5,15 @@
 </template>
 
 <script setup>
-import { onMounted, ref, defineProps } from "vue";
+import { onMounted, ref } from "vue";
 import BaseNavMenu from "./BaseNavMenu.vue";
 
 import { getRoutes } from "@/api/api";
 
-const props = defineProps({
-  isMobile: {
-    type: Boolean,
-    default: false
-  }
-})
 const routes = ref([])
 
 onMounted(async() => {
-  routes.value = await getRoutes(props.isMobile)
+  routes.value = await getRoutes()
 })
 
 </script>

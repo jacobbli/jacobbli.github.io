@@ -3,11 +3,11 @@
     <div class="theHeader__title">Hi! I'm
       <div class="theHeader__name">Jacob</div>
     </div>
-    <nav-bar :is-mobile="isMobile"/>
+    <nav-bar />
 
     <div v-if="!isMobile" class="theHeader__contactInfo">
       <div v-for="item in contactInfo" :key="item.content">
-        <external-link :label="item.content" :href="item.href" :icon="item.type" :is-primary-color="true" />
+        <external-link :label="item.content" :url="item.href" :icon="item.type" :is-primary-color="true" />
       </div>
     </div>
   </div>
