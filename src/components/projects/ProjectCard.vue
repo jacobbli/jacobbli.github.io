@@ -1,11 +1,11 @@
 <template>
   <base-card :title="project.label">
     <div class="projectCard__content">
-      <base-link v-if="project.github != ''" :is-primary-color="true" label="Github repo" icon="Github"
-        @click="navigateTo(project.github)" />
+      <external-link v-if="project.github != ''" :is-primary-color="true" label="Github repo" icon="Github"
+        :url="project.github" />
 
-      <base-link v-if="project.app != ''" :is-primary-color="true" label="App" icon="App"
-        @click="navigateTo(project.app)" />
+      <external-link v-if="project.app != ''" :is-primary-color="true" label="App" icon="App"
+      :url="project.app" />
 
     </div>
   </base-card>
@@ -14,7 +14,7 @@
 <script setup>
 import { defineProps } from "vue";
 import BaseCard from "../BaseCard.vue";
-import BaseLink from "../BaseLink.vue";
+import ExternalLink from "../ExternalLink.vue";
 
 defineProps({
   project: {
@@ -22,10 +22,6 @@ defineProps({
     required: true,
   },
 });
-
-function navigateTo(target) {
-  window.open(target)
-}
 </script>
 
 <style lang="scss" scoped>
