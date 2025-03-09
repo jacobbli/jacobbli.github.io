@@ -8,8 +8,8 @@
 
 <script setup>
 import { defineProps } from "vue";
-import BaseCard from "@/components/BaseCard.vue";
-import BaseBadge from "@/components/BaseBadge.vue";
+import BaseCard from "@/components/base/BaseCard.vue";
+import BaseBadge from "@/components/base/BaseBadge.vue";
 
 defineProps({
   skill: {
