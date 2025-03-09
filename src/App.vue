@@ -63,7 +63,7 @@ body {
 #app {
   height: 100%;
   margin: 0 auto;
-  padding: 16px;
+  padding: 32px;
 
   font-family: var(--regular-font);
   -webkit-font-smoothing: antialiased;
