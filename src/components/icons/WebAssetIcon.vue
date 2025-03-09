@@ -1,20 +1,6 @@
 <template>
-  <base-icon>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" :fill="fill">
-      <path
-        d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H160v400Z" />
-    </svg>
-  </base-icon>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="24px" height="24px" fill="currentColor">
+    <path
+      d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H160v400Z" />
+  </svg>
 </template>
-
-<script setup>
-import BaseIcon from "./BaseIcon.vue";
-import { defineProps } from "vue";
-
-defineProps({
-  fill: {
-    type: String,
-    default: "",
-  },
-});
-</script>
