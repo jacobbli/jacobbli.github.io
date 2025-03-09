@@ -11,25 +11,27 @@ defineProps({
 });
 </script>
 <template>
-  <h3>{{ project.label }}</h3>
-  <div class="projectCard__links">
-    <base-link v-if="project.github != ''" label="Github repo" icon="Github"
-      :target="project.github">
-      <template #icon><github-icon /></template>
-    </base-link>
-
-    <base-link v-if="project.app != ''" label="App" icon="App" :target="project.app">
-      <template #icon><web-asset-icon /></template>
-    </base-link>
-  </div>
   <div class="projectItem__image">
     <img :src="project.image">
   </div>
-  <p>{{ project.description }}</p>
+  <div class="projectItem__content">
+    <div class="projectItem__text">
+      <h3>{{ project.label }}</h3>
+      <p>{{ project.description }}</p>
+    </div>
+    <div class="projectItem__links">
+      <base-link v-if="project.github != ''" label="Github repo" icon="Github" :target="project.github">
+        <template #icon><github-icon /></template>
+      </base-link>
+      <base-link v-if="project.app != ''" label="App" icon="App" :target="project.app">
+        <template #icon><web-asset-icon /></template>
+      </base-link>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.projectCard__links {
+.projectItem__links {
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -50,5 +52,17 @@ defineProps({
 
     align-self: center;
   }
+}
+
+.projectItem__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.projectItem__text{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 </style>
