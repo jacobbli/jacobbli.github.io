@@ -32,8 +32,8 @@ defineProps({
   gap: 8px;
 
   border-radius: 10px;
-  background-color: white;
-  filter: drop-shadow(0px 0px 2px var(--highlight-color));
+  background-color: var(--background-colour);
+  filter: drop-shadow(0px 0px 2px var(--accent-colour));
   overflow: auto;
 
 }
@@ -47,7 +47,7 @@ defineProps({
   align-items: center;
   gap: 8px;
 
-  color: var(--primary-color);
+  color: var(--heading-colour);
   font-weight: bold;
 }
 </style>

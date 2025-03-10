@@ -39,13 +39,13 @@ defineProps({
   background-color: v-bind(backgroundColor);
   border-radius: 4px;
   border-color: v-bind(backgroundColor);
-  border-width: 2px;
+  border-width: 4px;
   border-style: solid;
   transition: border 0.5s;
 
   &:hover {
     border-color: v-bind(hoverColor);
-    border-width: 2px;
+    border-width: 4px;
     border-style: solid;
   }
 }

@@ -38,26 +38,35 @@ onMounted(() => {
 }
 
 :root {
-  --primary-color: #2C734F;
-  --secondary-color: #def2e8;
+  --accent-colour: hsl(94, 10%, 36%);
+  --background-colour: hsl(94, 10%, 86%);
+  --text-colour: #393e41;
+  --heading-colour: #393e41;
 
-  --highlight-color: #8bc7a9;
+  --button-background-colour: hsl(94, 10%, 76%);
+  --button-text-colour: var(--text-colour);
+  --button-hover-background-colour: hsl(94, 10%, 66%);
+  --button-hover-text-colour: var(--text-colour);
 
-  --header-font: "Roboto", sans-serif;
+  --link-colour: hsl(31, 78%, 34%);
+  --link-hover-text-colour: var(--background-colour);
+  --link-hover-background-colour: hsl(31, 78%, 34%);
+
+  --heading-font: "Roboto", sans-serif;
   --regular-font: "Open Sans", sans-serif;
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--header-font)
+  color: var(--heading-colour);
+  font-family: var(--heading-font)
 }
 
 html,
 body {
   min-height: 100vh;
-  background-color: #def2e8;
-
+  background-color:hsl(52, 20%, 95%);
 }
 
 #app {
@@ -65,6 +74,7 @@ body {
   margin: 0 auto;
   padding: 32px;
 
+  color: var(--text-colour);
   font-family: var(--regular-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

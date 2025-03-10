@@ -36,21 +36,21 @@ defineProps({
   border-radius: 5px;
   align-items: center;
 
-  color: rgb(124, 93, 45);
+  color: var(--link-colour);
   transition: background-color 0.5s, color 0.5s;
   cursor: pointer;
 
   a {
     text-decoration: none;
-    color: rgb(124, 93, 45);
+    color: var(--link-colour);
   }
 
   &:hover {
-    background-color: rgb(124, 93, 45);
-    color: white;
+    background-color: var(--link-hover-background-colour);
+    color: var(--link-hover-text-colour);
 
     & a {
-      color: white;
+      color: var(--link-hover-text-colour);
     }
   }
 }

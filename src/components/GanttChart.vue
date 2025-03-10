@@ -11,44 +11,24 @@ const props = defineProps({
 
 const colorPalette = [
   {
-    backgroundColor: '#66c5cc',
-    hoverColor: '#417d81'
+    backgroundColor: '#957057',
+    hoverColor: '#614939'
   },
   {
-    backgroundColor: '#f6cf71',
-    hoverColor: '#bb9234'
+    backgroundColor: '#3BA7EA',
+    hoverColor: '#2E85B8'
   },
   {
-    backgroundColor: '#f89c74',
-    hoverColor: '#f06e36'
+    backgroundColor: '#EAB63B',
+    hoverColor: '#B88E2E'
   },
   {
-    backgroundColor: '#dcb0f2',
-    hoverColor: '#c065ee'
+    backgroundColor: '#EA823B',
+    hoverColor: '#B8652E'
   },
   {
-    backgroundColor: '#87c55f',
-    hoverColor: '#448617'
-  },
-  {
-    backgroundColor: '#9eb9f3',
-    hoverColor: '#5385f1'
-  },
-  {
-    backgroundColor: '#fe88b1',
-    hoverColor: '#f74885'
-  },
-  {
-    backgroundColor: '#c9db74',
-    hoverColor: '#c0db39'
-  },
-  {
-    backgroundColor: '#8be0a4',
-    hoverColor: '#44ec77'
-  },
-  {
-    backgroundColor: '#b497e7',
-    hoverColor: '#8d5be2'
+    backgroundColor: '#577D95',
+    hoverColor: '#314654'
   }
 ]
 
@@ -171,10 +151,10 @@ function getBarStart(rowStartDate) {
   display: grid;
   align-items: center;
   padding: 8px 0;
-  border-bottom: rgb(223, 223, 223) 1px solid;
+  border-bottom: var(--button-background-colour) 1px solid;
 
   &:first-of-type {
-    border-top: rgb(223, 223, 223) 1px solid;
+    border-top: var(--button-background-colour) 1px solid;
   }
 }
 

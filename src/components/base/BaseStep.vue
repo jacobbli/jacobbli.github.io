@@ -21,6 +21,6 @@ defineProps({
 </template>
 <style lang="scss" scoped>
 .baseStep {
-    color: var(--primary-color);
+    color: var(--text-colour);
 }
 </style>

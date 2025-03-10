@@ -77,17 +77,17 @@ function scrollLeft() {
   align-items: center;
   justify-content: center;
 
-  background-color: rgb(241, 241, 241);
   box-shadow: 0 0 2px black;
-  color: var(--primary-color);
+  color: var(--button-text-colour);
+  background-color: var(--button-background-colour);
 
   z-index: 99;
   cursor: pointer;
   transition: background-color 0.5s;
 
   &:hover {
-    background-color: rgb(219, 219, 219);
-
+    background-color: var(--button-hover-background-colour);
+    color: var(--button-hover-text-colour);
   }
 }
 
