@@ -32,84 +32,46 @@ const colorPalette = [
   }
 ]
 
+const firstDate = computed(() => new Date(new Date(props.events[0].startDate)))
+const lastDate = computed(() => isNaN(new Date(props.events[props.events.length - 1].endDate)) ? new Date() : new Date(props.events[props.events.length - 1].endDate))
 
-const monthDiff = computed(() => {
-  const toDate = isNaN(new Date(props.events[props.events.length - 1].endDate)) ? new Date() : new Date(props.events[props.events.length - 1].endDate)
+const yearDiff = computed(() => (lastDate.value.getFullYear() - firstDate.value.getFullYear()) + 1)
 
-  const fromDate = new Date(props.events[0].startDate)
-  return (
-    toDate.getMonth() -
-    fromDate.getMonth() +
-    12 * (toDate.getFullYear() - fromDate.getFullYear()) +
-    1
-  )
-})
 
-// function getMonthName(monthNumber) {
-//   const monthNameMap = {
-//     0: 'Jan',
-//     1: 'Feb',
-//     2: 'Mar',
-//     3: 'Apr',
-//     4: 'May',
-//     5: 'Jun',
-//     6: 'Jul',
-//     7: 'Aug',
-//     8: 'Sep',
-//     9: 'Oct',
-//     10: 'Nov',
-//     11: 'Dec',
-//   }
-//   const startMonth = new Date(props.events[0].startDate).getMonth()
-//   return monthNameMap[(startMonth + monthNumber) % 12]
-// }
-
-function getYearLabel(monthNumber) {
-  const startYear = new Date(props.events[0].startDate).getFullYear()
-  const startMonth = new Date(props.events[0].startDate).getMonth()
-
-  const currentMonthNumber = monthNumber + startMonth
-  if (monthNumber == 0) return startYear
-  if (currentMonthNumber % 12 == 0) return startYear + (Math.floor(currentMonthNumber / 12))
-
+function getYearLabel(index) {
+  const firstYear = firstDate.value.getFullYear()
+  return firstYear + index
 }
 
 function getBarLength(startDate, endDate) {
   const fromDate = new Date(startDate)
   const toDate = isNaN(new Date(endDate)) ? new Date() : new Date(endDate)
-  const daysInMonth = new Date(toDate.getFullYear(), (toDate.getMonth() + 1) % 12, 0).getDate()
 
-  return (
-    ((toDate.getMonth() -
-      fromDate.getMonth() +
-      12 * (toDate.getFullYear() - fromDate.getFullYear()) +
-      toDate.getDate() / daysInMonth) /
-      monthDiff.value) *
-    100
-  )
+  const daysInToMonth = new Date(toDate.getFullYear(), (toDate.getMonth() + 1) % 12, 0).getDate()
+  const daysInFromMonth = new Date(fromDate.getFullYear(), (fromDate.getMonth() + 1) % 12, 0).getDate()
+
+  return (toDate.getMonth() -
+    fromDate.getMonth() +
+    12 * (toDate.getFullYear() - fromDate.getFullYear()) - ((fromDate.getDate() - 1) / daysInFromMonth) + (toDate.getDate() / daysInToMonth)) / 12 / yearDiff.value * 100
 }
 
 function getBarStart(rowStartDate) {
-  const fromDate = new Date(props.events[0].startDate)
+  const fromDate = new Date(firstDate.value.getFullYear(), 0, 1);
   const toDate = new Date(rowStartDate)
 
   const daysInMonth = new Date(toDate.getFullYear(), (toDate.getMonth() + 1) % 12, 0).getDate()
-  return (
-    ((toDate.getMonth() -
-      fromDate.getMonth() +
-      12 * (toDate.getFullYear() - fromDate.getFullYear()) +
-      (toDate.getDate() - 1) / daysInMonth) /
-      monthDiff.value) *
-    100
-  )
+
+  return (toDate.getMonth() -
+    fromDate.getMonth() +
+    12 * (toDate.getFullYear() - fromDate.getFullYear()) + (toDate.getDate()) / daysInMonth) / 12 / yearDiff.value * 100
 }
 </script>
 
 <template>
   <div class="ganttChart__grid">
-    <div class="ganttChart__header" :style="{ gridTemplateColumns: `20% repeat(${monthDiff}, 1fr)` }">
-      <div class="ganttChart__columnLabel" v-for="month in monthDiff" :key="month">
-        {{ getYearLabel(month - 1) }}<br />
+    <div class="ganttChart__header" :style="{ gridTemplateColumns: `20% repeat(${yearDiff}, 1fr)` }">
+      <div class="ganttChart__columnLabel" v-for="year in yearDiff" :key="year">
+        {{ getYearLabel(year - 1) }}<br />
         <!-- {{ getMonthName(month - 1) }} -->
       </div>
     </div>
@@ -117,10 +79,9 @@ function getBarStart(rowStartDate) {
       <div class="ganttChart__row" v-for="(event, index) in events" :key="event.startDate"
         :style="{ gridTemplateColumns: `20% 1fr` }">
         <div>{{ event.title }}</div>
-        <gantt-chart-bar 
-          :background-color="colorPalette[index % colorPalette.length].backgroundColor"
-          :hover-color="colorPalette[index % colorPalette.length].hoverColor" :left-indent="getBarStart(event.startDate)"
-          :width="getBarLength(event.startDate, event.endDate)" />
+        <gantt-chart-bar :background-color="colorPalette[index % colorPalette.length].backgroundColor"
+          :hover-color="colorPalette[index % colorPalette.length].hoverColor"
+          :left-indent="getBarStart(event.startDate)" :width="getBarLength(event.startDate, event.endDate)" />
       </div>
     </div>
   </div>
