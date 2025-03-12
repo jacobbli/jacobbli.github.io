@@ -95,7 +95,7 @@ function getBarStart(rowStartDate) {
 }
 
 .ganttChart__grid {
-  width: 100%;
+  min-width: fit-content;
 }
 
 .ganttChart__header {
