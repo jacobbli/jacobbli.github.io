@@ -76,12 +76,20 @@ function scrollLeft() {
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-  box-shadow: 0 0 2px black;
-  color: var(--button-text-colour);
+.baseCarousel__arrow {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background-color: var(--button-background-colour);
+  color: var(--button-text-colour);
+  border-radius: 50%;
 
-  z-index: 99;
   cursor: pointer;
   transition: background-color 0.5s;
 
@@ -93,7 +101,7 @@ function scrollLeft() {
 
 .baseCarousel__screen {
   height: 100%;
-  margin: 0 24px;
+  margin: 0 12px;
   overflow: hidden;
 }
 
@@ -107,10 +115,21 @@ function scrollLeft() {
 
   transition: left 2s;
 }
+
 .baseCarousel__progressBar {
   width: 100%;
 
   display: flex;
   justify-content: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .baseCarousel__overlay {
+    grid-template-columns: 3rem 1fr 3rem;
+  }
+
+  .baseCarousel__screen {
+    margin: 0 24px;
+  }
 }
 </style>

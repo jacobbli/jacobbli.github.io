@@ -39,14 +39,16 @@ onMounted(() => {
 
 :root {
   --accent-colour: hsl(94, 10%, 36%);
+  --tinted-accent-colour: hsl(94, 10%, 75%);
+
   --background-colour: hsl(94, 10%, 86%);
-  --text-colour: #393e41;
+  --text-colour: hsl(203, 7%, 24%);
   --heading-colour: #393e41;
 
-  --button-background-colour: hsl(94, 10%, 76%);
-  --button-text-colour: var(--text-colour);
-  --button-hover-background-colour: hsl(94, 10%, 66%);
-  --button-hover-text-colour: var(--text-colour);
+  --button-background-colour: var(--text-colour);
+  --button-text-colour: hsl(94, 10%, 76%);
+  --button-hover-background-colour: hsl(203, 7%, 44%);
+  --button-hover-text-colour: hsl(94, 10%, 76%);
 
   --link-colour: hsl(31, 78%, 34%);
   --link-hover-text-colour: var(--background-colour);

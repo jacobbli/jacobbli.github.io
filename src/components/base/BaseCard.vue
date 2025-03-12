@@ -25,7 +25,7 @@ defineProps({
 .baseCard__container {
   width: 100%;
   height: 100%;
-  padding: 20px 24px 44px 24px;
+  padding: 24px 16px;
 
   display: flex;
   flex-direction: column;
@@ -49,5 +49,11 @@ defineProps({
 
   color: var(--heading-colour);
   font-weight: bold;
+}
+
+@media only screen and (min-width: 768px) {
+  .baseCard__container {
+    padding: 20px 24px 44px 24px;
+  }
 }
 </style>

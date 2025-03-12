@@ -44,7 +44,7 @@ defineProps({
 
 
   img {
-    width: 50%;
+    width: 100%;
     object-fit: cover;
     object-position: top;
     aspect-ratio: 4 / 3;
@@ -60,9 +60,15 @@ defineProps({
   gap: 24px;
 }
 
-.projectItem__text{
+.projectItem__text {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .projectItem__image img {
+    width: 50%;
+  }
 }
 </style>

@@ -70,7 +70,7 @@ function getBarStart(rowStartDate) {
 <template>
   <div class="ganttChart__container">
     <div class="ganttChart__grid">
-      <div class="ganttChart__header" :style="{ gridTemplateColumns: `224px repeat(${yearDiff}, 5rem)` }">
+      <div class="ganttChart__header" :style="{ gridTemplateColumns: `224px repeat(${yearDiff}, minmax(5rem, 1fr))` }">
         <div class="ganttChart__columnLabel" v-for="year in yearDiff" :key="year">
           {{ getYearLabel(year - 1) }}<br />
         </div>
@@ -95,11 +95,11 @@ function getBarStart(rowStartDate) {
 }
 
 .ganttChart__grid {
-  width: fit-content;
+  width: 100%;
 }
 
 .ganttChart__header {
-  width: fit-content;
+  width: 100%;
   padding: 16px 24px 16px 0;
   display: grid;
 }
@@ -119,10 +119,10 @@ function getBarStart(rowStartDate) {
   display: grid;
   align-items: center;
   padding: 8px 0;
-  border-bottom: var(--button-background-colour) 1px solid;
+  border-bottom: var(--tinted-accent-colour) 1px solid;
 
   &:first-of-type {
-    border-top: var(--button-background-colour) 1px solid;
+    border-top: var(--tinted-accent-colour) 1px solid;
   }
 
   .ganttChart__rowLabel {
