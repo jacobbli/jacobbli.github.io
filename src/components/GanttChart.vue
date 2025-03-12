@@ -68,39 +68,46 @@ function getBarStart(rowStartDate) {
 </script>
 
 <template>
-  <div class="ganttChart__grid">
-    <div class="ganttChart__header" :style="{ gridTemplateColumns: `20% repeat(${yearDiff}, 1fr)` }">
-      <div class="ganttChart__columnLabel" v-for="year in yearDiff" :key="year">
-        {{ getYearLabel(year - 1) }}<br />
-        <!-- {{ getMonthName(month - 1) }} -->
+  <div class="ganttChart__container">
+    <div class="ganttChart__grid">
+      <div class="ganttChart__header" :style="{ gridTemplateColumns: `224px repeat(${yearDiff}, 5rem)` }">
+        <div class="ganttChart__columnLabel" v-for="year in yearDiff" :key="year">
+          {{ getYearLabel(year - 1) }}<br />
+        </div>
       </div>
-    </div>
-    <div class="ganttChart__chart">
-      <div class="ganttChart__row" v-for="(event, index) in events" :key="event.startDate"
-        :style="{ gridTemplateColumns: `20% 1fr` }">
-        <div>{{ event.title }}</div>
-        <gantt-chart-bar :background-color="colorPalette[index % colorPalette.length].backgroundColor"
-          :hover-color="colorPalette[index % colorPalette.length].hoverColor"
-          :left-indent="getBarStart(event.startDate)" :width="getBarLength(event.startDate, event.endDate)" />
+      <div class="ganttChart__chart">
+        <div class="ganttChart__row" v-for="(event, index) in events" :key="event.startDate"
+          :style="{ gridTemplateColumns: `224px 1fr` }">
+          <div class="ganttChart__rowLabel">{{ event.title }}</div>
+          <gantt-chart-bar :background-color="colorPalette[index % colorPalette.length].backgroundColor"
+            :hover-color="colorPalette[index % colorPalette.length].hoverColor"
+            :left-indent="getBarStart(event.startDate)" :width="getBarLength(event.startDate, event.endDate)" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.ganttChart__grid {
+.ganttChart__container {
   width: 100%;
+  overflow: auto;
+}
+
+.ganttChart__grid {
+  width: fit-content;
 }
 
 .ganttChart__header {
-  width: 100%;
-  padding: 16px 0;
+  width: fit-content;
+  padding: 16px 24px 16px 0;
   display: grid;
 }
 
 .ganttChart__columnLabel {
   &:first-of-type {
-    grid-column-start: 2
+    grid-column-start: 2;
+
   }
 }
 
@@ -117,16 +124,9 @@ function getBarStart(rowStartDate) {
   &:first-of-type {
     border-top: var(--button-background-colour) 1px solid;
   }
-}
 
-.ganttChart__columnDivider {
-  position: relative;
-  height: 100%;
-  top: 0;
-  display: grid;
-
-  .ganttChart__column {
-    border-right: 1px solid rgb(189, 189, 189);
+  .ganttChart__rowLabel {
+    padding-right: 20px;
   }
 }
 </style>

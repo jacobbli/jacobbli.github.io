@@ -42,32 +42,43 @@ import ContactIcon from '@/components/icons/ContactIcon.vue';
   </div>
 </template>
 <style lang="scss" scoped>
-.baseGrid__container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.baseGrid__intro {
-  grid-row: 1 / 3;
-
+.baseGrid__container{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .baseGrid__contactDetails {
-  grid-row: 3 / 4;
+  order: 5;
 }
+@media only screen and (min-width: 768px) {
+  .baseGrid__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
 
-.baseGrid__projects {
-  grid-column: 2 / 5;
-  grid-row: 1 / 4;
-}
+  .baseGrid__intro {
+    grid-row: 1 / 3;
 
-.baseGrid__workHistory {
-  grid-column: 1 / 5;
+  }
 
-}
+  .baseGrid__contactDetails {
+    grid-row: 3 / 4;
+  }
 
-.baseGrid__education {
-  grid-column: 1 / 5;
+  .baseGrid__projects {
+    grid-column: 2 / 5;
+    grid-row: 1 / 4;
+  }
+
+  .baseGrid__workHistory {
+    grid-column: 1 / 5;
+
+  }
+
+  .baseGrid__education {
+    grid-column: 1 / 5;
+  }
 }
 </style>
