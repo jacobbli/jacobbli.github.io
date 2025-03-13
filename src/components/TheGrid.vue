@@ -32,7 +32,9 @@ import ContactIcon from '@/components/icons/ContactIcon.vue';
     <base-card class="baseGrid__workHistory">
       <template #icon><work-icon /></template>
       <template #title>Work Experience</template>
-      <template #content><work-history /></template>
+      <template #content>
+        <work-history />
+      </template>
     </base-card>
     <base-card class="baseGrid__education">
       <template #icon><education-icon /></template>
@@ -42,7 +44,7 @@ import ContactIcon from '@/components/icons/ContactIcon.vue';
   </div>
 </template>
 <style lang="scss" scoped>
-.baseGrid__container{
+.baseGrid__container {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -51,6 +53,7 @@ import ContactIcon from '@/components/icons/ContactIcon.vue';
 .baseGrid__contactDetails {
   order: 5;
 }
+
 @media only screen and (min-width: 768px) {
   .baseGrid__container {
     display: grid;

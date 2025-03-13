@@ -6,7 +6,7 @@ const props = defineProps({
   events: {
     type: Array,
     required: true
-  }
+  },
 })
 
 const colorPalette = [
@@ -78,8 +78,11 @@ function getBarStart(rowStartDate) {
       <div class="ganttChart__chart">
         <div class="ganttChart__row" v-for="(event, index) in events" :key="event.startDate"
           :style="{ gridTemplateColumns: `224px 1fr` }">
-          <div class="ganttChart__rowLabel">{{ event.title }}</div>
-          <gantt-chart-bar :background-color="colorPalette[index % colorPalette.length].backgroundColor"
+          <div class="ganttChart__rowLabel">
+            <div>{{ event.title || event.degree }}</div>
+            <div class="ganttChart__organizationLabel">{{ event.organization || event.school }}</div>
+          </div>
+          <gantt-chart-bar :event="event" :background-color="colorPalette[index % colorPalette.length].backgroundColor"
             :hover-color="colorPalette[index % colorPalette.length].hoverColor"
             :left-indent="getBarStart(event.startDate)" :width="getBarLength(event.startDate, event.endDate)" />
         </div>
@@ -127,6 +130,11 @@ function getBarStart(rowStartDate) {
 
   .ganttChart__rowLabel {
     padding-right: 20px;
+
+    .ganttChart__organizationLabel {
+      font-style: italic;
+      font-size: 12px;
+    }
   }
 }
 </style>

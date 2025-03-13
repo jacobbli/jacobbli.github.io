@@ -4,15 +4,15 @@ const educationHistory = [
   {
     "startDate": "2018-09-4",
     "endDate": "2021-09-13",
-    "title": "Bachelor of Science - Computer Science",
-    "organization": "Simon Fraser University",
+    "degree": "Bachelor of Science - Computer Science",
+    "school": "Simon Fraser University",
     "location": "Canada",
   },
   {
     "startDate": "2011-09-06",
     "endDate": "2016-09-12",
-    "title": "Bachelor of Business Administration",
-    "organization": "Simon Fraser University",
+    "degree": "Bachelor of Business Administration",
+    "school": "Simon Fraser University",
     "location": "Canada",
   }
 ]

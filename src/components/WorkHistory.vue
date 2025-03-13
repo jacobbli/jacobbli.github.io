@@ -59,5 +59,3 @@ const employmentHistory = [
     <gantt-chart :events="employmentHistory.reverse()" />
   </div>
 </template>
-
-<style lang="scss" scoped></style>

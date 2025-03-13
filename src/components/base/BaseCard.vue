@@ -1,3 +1,14 @@
+<script setup>
+import { defineProps } from "vue";
+
+defineProps({
+  title: {
+    type: String,
+    default: ""
+  }
+});
+</script>
+
 <template>
   <div class="baseCard__container">
     <div class="baseCard__header">
@@ -10,16 +21,6 @@
   </div>
 </template>
 
-<script setup>
-import { defineProps } from "vue";
-
-defineProps({
-  title: {
-    type: String,
-    default: ""
-  },
-});
-</script>
 
 <style lang="scss" scoped>
 .baseCard__container {
