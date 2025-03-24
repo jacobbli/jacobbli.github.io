@@ -70,7 +70,7 @@ function getBarStart(rowStartDate) {
 <template>
   <div class="ganttChart__container">
     <div class="ganttChart__grid">
-      <div class="ganttChart__header" :style="{ gridTemplateColumns: `224px repeat(${yearDiff}, minmax(5rem, 1fr))` }">
+      <div class="ganttChart__header" :style="{ gridTemplateColumns: `224px repeat(${yearDiff}, minmax(3rem, 1fr))` }">
         <div class="ganttChart__columnLabel" v-for="year in yearDiff" :key="year">
           {{ getYearLabel(year - 1) }}<br />
         </div>
@@ -79,8 +79,8 @@ function getBarStart(rowStartDate) {
         <div class="ganttChart__row" v-for="(event, index) in events" :key="event.startDate"
           :style="{ gridTemplateColumns: `224px 1fr` }">
           <div class="ganttChart__rowLabel">
-            <div>{{ event.title || event.degree }}</div>
-            <div class="ganttChart__organizationLabel">{{ event.organization || event.school }}</div>
+            <div :title="event.title || event.degree">{{ event.title || event.degree }}</div>
+            <!-- <div class="ganttChart__organizationLabel">{{ event.organization || event.school }}</div> -->
           </div>
           <gantt-chart-bar :event="event" :background-color="colorPalette[index % colorPalette.length].backgroundColor"
             :hover-color="colorPalette[index % colorPalette.length].hoverColor"
@@ -95,6 +95,8 @@ function getBarStart(rowStartDate) {
 .ganttChart__container {
   width: 100%;
   overflow: auto;
+
+  font-size: 0.675rem;
 }
 
 .ganttChart__grid {
@@ -121,15 +123,27 @@ function getBarStart(rowStartDate) {
 .ganttChart__row {
   display: grid;
   align-items: center;
-  padding: 8px 0;
-  border-bottom: var(--tinted-accent-colour) 1px solid;
+  padding: 4px 0;
 
   &:first-of-type {
     border-top: var(--tinted-accent-colour) 1px solid;
   }
 
+  &:last-of-type{
+    border-bottom: var(--tinted-accent-colour) 1px solid;
+
+  }
+
   .ganttChart__rowLabel {
     padding-right: 20px;
+
+
+    div {
+      text-align: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-wrap: nowrap;
+    }
 
     .ganttChart__organizationLabel {
       font-style: italic;

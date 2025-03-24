@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Roboto";
+  font-weight: Bold;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Roboto"),
+    url("@/assets/Roboto-VariableFont_wdth,wght.ttf") format("woff2");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Open Sans"),
+    url("@/assets/OpenSans-VariableFont_wdth,wght.ttf") format("woff2");
+}
+
+:root {
+  --accent-colour: hsl(94, 10%, 36%);
+  --tinted-accent-colour: hsl(94, 10%, 75%);
+
+  --background-colour: white; /*hsl(52, 20%, 95%);*/
+  --text-colour: hsl(203, 7%, 24%);
+  --heading-colour: #393e41;
+
+  --button-background-colour: var(--text-colour);
+  --button-text-colour: hsl(94, 10%, 76%);
+  --button-hover-background-colour: hsl(203, 7%, 44%);
+  --button-hover-text-colour: hsl(94, 10%, 76%);
+
+  --link-colour: hsl(31, 78%, 34%);
+  --link-hover-text-colour: var(--background-colour);
+  --link-hover-background-colour: hsl(31, 78%, 34%);
+
+  --heading-font: "Roboto", sans-serif;
+  --regular-font: "Open Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  background-color: var(--background-color);
+
+  color: var(--text-colour);
+  font-family: var(--regular-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+h1,
+h2,
+h3 {
+  color: var(--heading-colour);
+  font-family: var(--heading-font)
+}

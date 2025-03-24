@@ -1,6 +1,10 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import TheGrid from "./components/TheGrid.vue";
+import TheHeader from '@/components/TheHeader.vue';
+import WorkHistory from '@/components/WorkHistory.vue';
+import ContactDetails from '@/components/ContactDetails.vue';
+import EducationHistory from '@/components/EducationHistory.vue';
+
 const isMobile = ref(screen.width < 768);
 
 onMounted(() => {
@@ -10,75 +14,46 @@ onMounted(() => {
 </script>
 
 <template>
-  <the-grid />
+  <header>
+      <the-header />
+      <div>
+        <h2>Let's connect!</h2>
+        <contact-details />
+      </div>
+  </header>
+
+  <main>
+    <work-history />
+    <education-history />
+  </main>
 </template>
 
 <style lang="scss">
-@font-face {
-  font-family: "Roboto";
-  font-weight: Bold;
-  font-style: normal;
-  font-display: auto;
-  unicode-range: U+000-5FF;
-  src: local("Roboto"), url("@/assets/Roboto-VariableFont_wdth,wght.ttf") format("woff2");
-}
-@font-face {
-  font-family: "Open Sans";
-  font-weight: 400;
-  font-style: normal;
-  font-display: auto;
-  unicode-range: U+000-5FF;
-  src: local("Open Sans"), url("@/assets/OpenSans-VariableFont_wdth,wght.ttf") format("woff2");
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --accent-colour: hsl(94, 10%, 36%);
-  --tinted-accent-colour: hsl(94, 10%, 75%);
-
-  --background-colour: hsl(94, 10%, 86%);
-  --text-colour: hsl(203, 7%, 24%);
-  --heading-colour: #393e41;
-
-  --button-background-colour: var(--text-colour);
-  --button-text-colour: hsl(94, 10%, 76%);
-  --button-hover-background-colour: hsl(203, 7%, 44%);
-  --button-hover-text-colour: hsl(94, 10%, 76%);
-
-  --link-colour: hsl(31, 78%, 34%);
-  --link-hover-text-colour: var(--background-colour);
-  --link-hover-background-colour: hsl(31, 78%, 34%);
-
-  --heading-font: "Roboto", sans-serif;
-  --regular-font: "Open Sans", sans-serif;
-}
-
-h1,
-h2,
-h3 {
-  color: var(--heading-colour);
-  font-family: var(--heading-font)
-}
-
-html,
-body {
-  min-height: 100vh;
-  background-color:hsl(52, 20%, 95%);
-}
-
 #app {
-  height: 100%;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 32px;
+  padding: 4rem 3rem 0 3rem;
 
-  color: var(--text-colour);
-  font-family: var(--regular-font);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  display: grid;
+  grid-template-columns: 30% auto;
+  gap: 50px;
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    height: calc(100vh - 4rem);
+    position: sticky;
+    top: 4rem;
+  }
+
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+    padding-bottom: 4rem;
+  }
 }
 </style>

@@ -58,13 +58,12 @@ function getLongDateString(dateString) {
 .ganttChartBar {
   position: relative;
   width: v-bind('width + "%"');
-  height: 16px;
+  height: 0.80rem;
 
   top: 0;
   left: v-bind('leftIndent + "%"');
 
   background-color: v-bind(backgroundColor);
-  border-radius: 4px;
   border-color: v-bind(backgroundColor);
   border-width: 4px;
   border-style: solid;
