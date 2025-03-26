@@ -3,7 +3,9 @@ import { ref, onMounted } from "vue";
 import TheHeader from '@/components/TheHeader.vue';
 import WorkHistory from '@/components/WorkHistory.vue';
 import ContactDetails from '@/components/ContactDetails.vue';
+import WorkHistoryList from "./components/WorkHistoryList.vue";
 import EducationHistory from '@/components/EducationHistory.vue';
+import ProjectList from "./components/ProjectList.vue";
 
 const isMobile = ref(screen.width < 768);
 
@@ -15,15 +17,17 @@ onMounted(() => {
 
 <template>
   <header>
-      <the-header />
-      <div>
-        <h2>Let's connect!</h2>
-        <contact-details />
-      </div>
+    <the-header />
+    <div>
+      <h2>Let's connect!</h2>
+      <contact-details />
+    </div>
   </header>
 
   <main>
+    <project-list />
     <work-history />
+    <work-history-list />
     <education-history />
   </main>
 </template>
@@ -35,7 +39,7 @@ onMounted(() => {
   padding: 4rem 3rem 0 3rem;
 
   display: grid;
-  grid-template-columns: 30% auto;
+  grid-template-columns: 40% auto;
   gap: 50px;
 
   header {
@@ -52,7 +56,7 @@ onMounted(() => {
   main {
     display: flex;
     flex-direction: column;
-    gap: 200px;
+    gap: 10rem;
     padding-bottom: 4rem;
   }
 }

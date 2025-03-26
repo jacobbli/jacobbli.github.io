@@ -19,6 +19,16 @@
 }
 
 :root {
+  --primary-color-10: hsl(203, 50%, 10%);
+  --primary-color-20: hsl(203, 50%, 20%);
+  --primary-color-30: hsl(203, 50%, 30%);
+  --primary-color-40: hsl(203, 50%, 40%);
+  --primary-color-50: hsl(203, 50%, 50%);
+  --primary-color-60: hsl(203, 50%, 60%);
+  --primary-color-70: hsl(203, 50%, 70%);
+  --primary-color-80: hsl(203, 50%, 80%);
+  --primary-color-90: hsl(203, 50%, 90%);
+
   --accent-colour: hsl(94, 10%, 36%);
   --tinted-accent-colour: hsl(94, 10%, 75%);
 

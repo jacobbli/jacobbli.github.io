@@ -1,6 +1,10 @@
 <script setup>
-import BaseCarousel from '@/components/base/BaseCarousel.vue';
-import ProjectItem from "@/components/ProjectList.vue";
+import BaseSection from "./base/BaseSection.vue";
+import BaseCard from "./base/BaseCard.vue";
+import BaseLink from "@/components/base/BaseLink.vue";
+import GithubIcon from "@/components/icons/GithubIcon.vue";
+import WebAssetIcon from "@/components/icons/WebAssetIcon.vue";
+
 
 const projects = [{
   "label": "Car Share Trip Calculator",
@@ -57,17 +61,63 @@ const projects = [{
     }
   ]
 }]
+
 </script>
 <template>
-  <base-carousel :n-items="projects.length">
-    <span v-for="project in projects" :key="project.label" class="projectCarousel__item" :project="project">
-      <project-item :project="project" />
-    </span>
-  </base-carousel>
+  <base-section title="Projects">
+    <div class="projectList__content">
+      <base-card v-for="project in projects" :key="project.label" :has-image="true">
+        <template #image>
+          <img :src="project.image">
+        </template>
+        <template #content>
+          <div class="projectItem__content">
+            <h3>{{ project.label }}</h3>
+            <p>{{ project.description }}</p>
+            <div class="projectItem__links">
+              <base-link v-if="project.github != ''" label="Github repo" icon="Github" :target="project.github">
+                <template #icon><github-icon /></template>
+              </base-link>
+              <base-link v-if="project.app != ''" label="App" icon="App" :target="project.app">
+                <template #icon><web-asset-icon /></template>
+              </base-link>
+            </div>
+          </div>
+        </template>
+      </base-card>
+    </div>
+  </base-section>
 </template>
+
 <style lang="scss" scoped>
-.projectCarousel__item {
-  height: 100%;
-  width: 100%;
+.projectList__content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
+
+.projectItem__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.projectItem__links {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  // aspect-ratio: 4 / 3;
+  // border: 1px solid rgb(221, 221, 221);
+
+}
+
+@media only screen and (min-width: 768px) {}
 </style>
