@@ -1,60 +1,48 @@
 <script setup>
-import { defineProps } from "vue";
+import { computed, defineProps } from "vue";
 
-defineProps({
-  title: {
-    type: String,
-    default: ""
+const props = defineProps({
+  hasImage: {
+    type: Boolean,
+    default: false
   }
 });
+
+const baseCardClass = computed(() => props.hasImage ? 'grid' : '')
+
 </script>
 
 <template>
-  <div class="baseCard__container">
-    <div class="baseCard__header">
-      <slot name="icon"></slot>
-      <h2>
-        <slot name="title"></slot>
-      </h2>
+  <div class="baseCard__container" :class="baseCardClass">
+    <div class="baseCard__image">
+      <slot name="image"></slot>
     </div>
-    <slot name="content"></slot>
+    <div class="baseCard__content">
+      <slot name="content"></slot>
+    </div>
   </div>
 </template>
 
 
 <style lang="scss" scoped>
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 80%;
+  gap: 2rem;
+  align-items: baseline;
+}
+
 .baseCard__container {
-  width: 100%;
-  height: 100%;
-  padding: 24px 16px;
 
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  .baseCard__image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
 
-  border-radius: 10px;
-  background-color: var(--background-colour);
-  filter: drop-shadow(0px 0px 2px var(--accent-colour));
-  overflow: auto;
-
-}
-
-.baseCard__header {
-  width: 100%;
-  margin-bottom: 8px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-
-  color: var(--heading-colour);
-  font-weight: bold;
-}
-
-@media only screen and (min-width: 768px) {
-  .baseCard__container {
-    padding: 20px 24px 44px 24px;
+  .baseCard__image:empty {
+    display: none
   }
 }
+
+@media only screen and (min-width: 768px) {}
 </style>

@@ -1,5 +1,8 @@
 <template>
-  <div class="theIntro">
+  <div class="theHeader">
+    <h1>
+    Jacob Li
+    </h1>
     <p>
       Welcome to my space 🙂
     </p>
@@ -12,9 +15,14 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.theIntro {
+.theHeader {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  h1 {
+  font-weight: bold;
+  font-size: 3rem;
+}
 }
 </style>

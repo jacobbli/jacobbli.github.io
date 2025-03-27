@@ -7,30 +7,16 @@ const props = defineProps({
     type: Array,
     required: true
   },
+  onClickBar: {
+    type: Function,
+    default: () => { }
+  },
+  selectedRows: {
+    type: Array,
+    default: Array
+  }
 })
 
-const colorPalette = [
-  {
-    backgroundColor: '#957057',
-    hoverColor: '#614939'
-  },
-  {
-    backgroundColor: '#3BA7EA',
-    hoverColor: '#2E85B8'
-  },
-  {
-    backgroundColor: '#EAB63B',
-    hoverColor: '#B88E2E'
-  },
-  {
-    backgroundColor: '#EA823B',
-    hoverColor: '#B8652E'
-  },
-  {
-    backgroundColor: '#577D95',
-    hoverColor: '#314654'
-  }
-]
 
 const firstDate = computed(() => new Date(new Date(props.events[0].startDate)))
 const lastDate = computed(() => isNaN(new Date(props.events[props.events.length - 1].endDate)) ? new Date() : new Date(props.events[props.events.length - 1].endDate))
@@ -70,21 +56,21 @@ function getBarStart(rowStartDate) {
 <template>
   <div class="ganttChart__container">
     <div class="ganttChart__grid">
-      <div class="ganttChart__header" :style="{ gridTemplateColumns: `224px repeat(${yearDiff}, minmax(5rem, 1fr))` }">
-        <div class="ganttChart__columnLabel" v-for="year in yearDiff" :key="year">
-          {{ getYearLabel(year - 1) }}<br />
+      <div class="ganttChart__header" :style="{ gridTemplateColumns: `30% repeat(${yearDiff}, 1fr)` }">
+        <div class="ganttChart__columnLabel" v-for="year in yearDiff" :key="year" :title="getYearLabel(year - 1)">
+          {{ getYearLabel(year - 1) }}
         </div>
       </div>
       <div class="ganttChart__chart">
         <div class="ganttChart__row" v-for="(event, index) in events" :key="event.startDate"
-          :style="{ gridTemplateColumns: `224px 1fr` }">
+          :style="{ gridTemplateColumns: `30% 1fr` }">
           <div class="ganttChart__rowLabel">
-            <div>{{ event.title || event.degree }}</div>
-            <div class="ganttChart__organizationLabel">{{ event.organization || event.school }}</div>
+            <div :title="event.title || event.degree">{{ event.title || event.degree }}</div>
+            <!-- <div class="ganttChart__organizationLabel">{{ event.organization || event.school }}</div> -->
           </div>
-          <gantt-chart-bar :event="event" :background-color="colorPalette[index % colorPalette.length].backgroundColor"
-            :hover-color="colorPalette[index % colorPalette.length].hoverColor"
-            :left-indent="getBarStart(event.startDate)" :width="getBarLength(event.startDate, event.endDate)" />
+          <gantt-chart-bar :event="event" :on-click-bar="() => onClickBar(index)"
+            :is-not-selected="!selectedRows.includes(index)" :left-indent="getBarStart(event.startDate)"
+            :width="getBarLength(event.startDate, event.endDate)" />
         </div>
       </div>
     </div>
@@ -95,6 +81,8 @@ function getBarStart(rowStartDate) {
 .ganttChart__container {
   width: 100%;
   overflow: auto;
+
+  font-size: 0.675rem;
 }
 
 .ganttChart__grid {
@@ -108,6 +96,9 @@ function getBarStart(rowStartDate) {
 }
 
 .ganttChart__columnLabel {
+  text-overflow: ellipsis;
+  overflow: hidden;
+
   &:first-of-type {
     grid-column-start: 2;
 
@@ -121,15 +112,26 @@ function getBarStart(rowStartDate) {
 .ganttChart__row {
   display: grid;
   align-items: center;
-  padding: 8px 0;
-  border-bottom: var(--tinted-accent-colour) 1px solid;
+  padding: 4px 0;
 
   &:first-of-type {
     border-top: var(--tinted-accent-colour) 1px solid;
   }
 
+  &:last-of-type {
+    border-bottom: var(--tinted-accent-colour) 1px solid;
+
+  }
+
   .ganttChart__rowLabel {
     padding-right: 20px;
+
+
+    div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-wrap: nowrap;
+    }
 
     .ganttChart__organizationLabel {
       font-style: italic;

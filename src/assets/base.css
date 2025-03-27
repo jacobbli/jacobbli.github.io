@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "Roboto";
+  font-weight: Bold;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Roboto"),
+    url("@/assets/Roboto-VariableFont_wdth,wght.ttf") format("woff2");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Open Sans"),
+    url("@/assets/OpenSans-VariableFont_wdth,wght.ttf") format("woff2");
+}
+
+:root {
+  --primary-colour-10: hsl(203, 50%, 10%);
+  --primary-colour-20: hsl(203, 50%, 20%);
+  --primary-colour-30: hsl(203, 50%, 30%);
+  --primary-colour-40: hsl(203, 50%, 40%);
+  --primary-colour-50: hsl(203, 50%, 50%);
+  --primary-colour-60: hsl(203, 50%, 60%);
+  --primary-colour-70: hsl(203, 50%, 70%);
+  --primary-colour-80: hsl(203, 50%, 80%);
+  --primary-colour-90: hsl(203, 50%, 90%);
+
+  --primary-grey-40: hsl(203, 10%, 40%);
+  --primary-grey-50: hsl(203, 10%, 50%);
+  --primary-grey-60: hsl(203, 10%, 60%);
+  --primary-grey-70: hsl(203, 10%, 70%);
+  --primary-grey-80: hsl(203, 10%, 80%);
+  --primary-grey-85: hsl(203, 10%, 85%);
+  --primary-grey-90: hsl(203, 10%, 90%);
+  --primary-grey-97: hsl(203, 10%, 97%);
+
+
+  --accent-colour: hsl(94, 10%, 36%);
+  --tinted-accent-colour: hsl(94, 10%, 75%);
+
+  --background-colour: var(--primary-grey-97); /*hsl(52, 20%, 95%);*/
+  --text-colour: var(--primary-colour-20);
+  --heading-colour: var(--primary-colour-10);
+
+  --button-background-colour: var(--text-colour);
+  --button-text-colour: hsl(94, 10%, 76%);
+  --button-hover-background-colour: hsl(203, 7%, 44%);
+  --button-hover-text-colour: hsl(94, 10%, 76%);
+
+  --link-colour: var(--primary-colour-40);
+  --link-hover-text-colour: var(--background-colour);
+  --link-hover-background-colour: var(--primary-colour-40);
+
+  --heading-font: "Roboto", sans-serif;
+  --regular-font: "Open Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  background-color: var(--background-colour);
+
+  color: var(--text-colour);
+  font-family: var(--regular-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+h1,
+h2,
+h3 {
+  color: var(--heading-colour);
+  font-family: var(--heading-font)
+}
