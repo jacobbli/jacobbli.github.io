@@ -21,9 +21,8 @@
   gap: 1rem;
 
   h1 {
-  color: var(--primary-color);
   font-weight: bold;
-  font-size: 36px;
+  font-size: 3rem;
 }
 }
 </style>

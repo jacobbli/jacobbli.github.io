@@ -1,6 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue';
-import BaseSection from '@/components/base/BaseSection.vue'
+import { computed, onMounted, ref } from 'vue';
 import GanttChart from '@/components/GanttChart.vue';
 import TheMap from './TheMap.vue';
 
@@ -67,16 +66,22 @@ const selectedJobLocation = computed(() => selectedJobs.value.reduce((acc, job) 
 }, [])
 )
 
+const selectableJobLocations = computed(() =>
+  employmentHistory.reduce((acc, job) => {
+    if (!(acc.includes(job.location.toLowerCase()))) acc.push(job.location.toLowerCase())
+    return acc
+  }, [])
+)
+
 
 function selectJob(index) {
   if (index == undefined) {
-    selectedJobIndices.value = []
+    selectedJobIndices.value = [...Array(employmentHistory.length).keys()];
   } else if (selectedJobIndices.value.length == 1 && selectedJobIndices.value[0] == index) {
-    selectedJobIndices.value = []
+    selectedJobIndices.value = [...Array(employmentHistory.length).keys()];
   } else {
     selectedJobIndices.value = [index]
   }
-  console.log(selectedJobIndices.value)
 }
 
 function selectJobLocation(location) {
@@ -85,18 +90,29 @@ function selectJobLocation(location) {
     return acc
   }, [])
 }
+
+onMounted(() => {
+  selectedJobIndices.value = [...Array(employmentHistory.length).keys()];
+})
 </script>
 <template>
-  <base-section title="Work History">
-    <div class="workHistory__container">
-      <div class="workHistory__ganttChart">
-        <gantt-chart :events="employmentHistory" :on-click-bar="selectJob" :selected-rows="selectedJobIndices" />
+  <div class="workHistory__container">
+    <div class="workHistory__ganttChart">
+      <gantt-chart :events="employmentHistory" :on-click-bar="selectJob" :selected-rows="selectedJobIndices" />
+      <span>(Click on the bars to interact with the chart!)</span>
+
+    </div>
+    <div class="workHistory__mapContainer">
+      <div class="workHistory__mapTitle">
+        <h3>Where I've worked</h3>
+        <span>(Click on the countries to interact with the map!)</span>
       </div>
       <div class="workHistory__map">
-        <the-map :highlighted-regions="selectedJobLocation" :on-click-feature="selectJobLocation" />
+        <the-map :selectable-features="selectableJobLocations" :selected-features="selectedJobLocation"
+          :on-click-feature="selectJobLocation" />
       </div>
     </div>
-  </base-section>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -113,8 +129,28 @@ function selectJobLocation(location) {
   grid-area: gantt-chart
 }
 
+.workHistory__mapContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.workHistory__mapTitle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: baseline;
+}
+
+span {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--primary-grey-40)
+}
+
 .workHistory__map {
   grid-area: map;
+  border: 1px solid var(--primary-grey-80);
+  border-radius: 4px;
 }
 
 .workHistory__pieChart {

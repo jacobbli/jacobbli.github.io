@@ -7,14 +7,18 @@ import canada from '@/data/canada.geo.json'
 import china from '@/data/china.geo.json'
 
 const props = defineProps({
-  highlightedRegions: {
+  selectedFeatures: {
     type: Array,
     default: Array
   },
   onClickFeature: {
     type: Function,
     default: () => { }
-  }
+  },
+  selectableFeatures: {
+    type: Array,
+    default: Array
+  },
 })
 
 const mapRef = ref(null)
@@ -31,16 +35,27 @@ const regionMap = {
 
 onMounted(() => {
   mapRef.value = initMap()
-  drawMapFeature(mapRef.value, world, props.onClickFeature)
+  drawBaseMap()
 })
+
+function drawBaseMap() {
+  drawMapFeature(mapRef.value, world, null, 'var(--primary-grey-90)', 'var(--primary-grey-90)', 1)
+}
 
 watchEffect(() => {
   if (mapRef.value !== null) {
     drawnLayersGroup.value.eachLayer(layer => layer.remove())
-    props.highlightedRegions.forEach(region => {
+
+    props.selectableFeatures.forEach(region => {
       const regionProperties = regionMap[region]
-      const layer = drawMapFeature(mapRef.value, regionProperties.geo, props.onClickFeature, 'var(--primary-color-40)', 'var(--primary-color-60)', 1)
-      drawnLayersGroup.value.addLayer(layer)
+
+      if (props.selectedFeatures.includes(region)) {
+        const layer = drawMapFeature(mapRef.value, regionProperties.geo, props.onClickFeature, 'var(--primary-colour-40)', 'var(--primary-colour-60)', 1)
+        drawnLayersGroup.value.addLayer(layer)
+      } else {
+        const layer = drawMapFeature(mapRef.value, regionProperties.geo, props.onClickFeature, 'var(--primary-colour-80)', 'var(--primary-colour-80)', 1)
+        drawnLayersGroup.value.addLayer(layer)
+      }
     })
   }
 })

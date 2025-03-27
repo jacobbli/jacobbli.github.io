@@ -54,23 +54,23 @@ function getBarStart(rowStartDate) {
 </script>
 
 <template>
-  <div class="ganttChart__container" >
+  <div class="ganttChart__container">
     <div class="ganttChart__grid">
-      <div class="ganttChart__header" :style="{ gridTemplateColumns: `20% repeat(${yearDiff}, 1fr)` }">
-        <div class="ganttChart__columnLabel" v-for="year in yearDiff" :key="year">
-          {{ getYearLabel(year - 1) }}<br />
+      <div class="ganttChart__header" :style="{ gridTemplateColumns: `30% repeat(${yearDiff}, 1fr)` }">
+        <div class="ganttChart__columnLabel" v-for="year in yearDiff" :key="year" :title="getYearLabel(year - 1)">
+          {{ getYearLabel(year - 1) }}
         </div>
       </div>
       <div class="ganttChart__chart">
         <div class="ganttChart__row" v-for="(event, index) in events" :key="event.startDate"
-          :style="{ gridTemplateColumns: `20% 1fr` }">
+          :style="{ gridTemplateColumns: `30% 1fr` }">
           <div class="ganttChart__rowLabel">
             <div :title="event.title || event.degree">{{ event.title || event.degree }}</div>
             <!-- <div class="ganttChart__organizationLabel">{{ event.organization || event.school }}</div> -->
           </div>
           <gantt-chart-bar :event="event" :on-click-bar="() => onClickBar(index)"
-            :is-not-selected="selectedRows.length > 0 && !selectedRows.includes(index)"
-            :left-indent="getBarStart(event.startDate)" :width="getBarLength(event.startDate, event.endDate)" />
+            :is-not-selected="!selectedRows.includes(index)" :left-indent="getBarStart(event.startDate)"
+            :width="getBarLength(event.startDate, event.endDate)" />
         </div>
       </div>
     </div>
@@ -96,6 +96,9 @@ function getBarStart(rowStartDate) {
 }
 
 .ganttChart__columnLabel {
+  text-overflow: ellipsis;
+  overflow: hidden;
+
   &:first-of-type {
     grid-column-start: 2;
 
@@ -125,7 +128,6 @@ function getBarStart(rowStartDate) {
 
 
     div {
-      text-align: right;
       overflow: hidden;
       text-overflow: ellipsis;
       text-wrap: nowrap;

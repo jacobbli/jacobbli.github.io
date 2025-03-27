@@ -51,10 +51,11 @@ function hideToolTip() {
 </script>
 
 <template>
-  <div class="ganttChartBar" @mouseenter="showToolTip" @mouseleave="hideToolTip" @click="onClickBar"
+  <div class="ganttChartBar"  @mouseenter="showToolTip" @mouseleave="hideToolTip" @click="onClickBar"
     :class="[colorClass, notSelectedClass]">
     <base-tool-tip v-if="isToolTipVisible" class="tooltip">
-      {{ getLongDateString(event.startDate) }} - {{ getLongDateString(event.endDate) }}
+      <p>{{ getLongDateString(event.startDate) }} - {{ getLongDateString(event.endDate) }}</p>
+      <p>{{ event.organization || event.school }}</p>
     </base-tool-tip>
   </div>
 </template>
@@ -76,42 +77,31 @@ function hideToolTip() {
 
 }
 
-
 .tooltip {
   position: absolute;
   width: max-content;
   bottom: 100%;
   right: 0;
-
-  padding: 4px;
-
-  font-size: 0.8rem;
-
-  border: 2px solid rgb(99, 99, 99);
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: rgb(238, 238, 238);
-  z-index: 99;
 }
 
 .color-1 {
-  background-color: var(--primary-color-30)
+  background-color: var(--primary-colour-30)
 }
 
 .color-2 {
-  background-color: var(--primary-color-40)
+  background-color: var(--primary-colour-40)
 }
 
 .color-3 {
-  background-color: var(--primary-color-50)
+  background-color: var(--primary-colour-50)
 }
 
 .color-4 {
-  background-color: var(--primary-color-60)
+  background-color: var(--primary-colour-60)
 }
 
 .color-5 {
-  background-color: var(--primary-color-70)
+  background-color: var(--primary-colour-70)
 }
 
 .not-selected {
