@@ -27,7 +27,7 @@ const baseCardClass = computed(() => props.hasImage ? 'grid' : '')
 <style lang="scss" scoped>
 .grid {
   display: grid;
-  grid-template-columns: 1fr 80%;
+  grid-template-columns: 20% 1fr;
   gap: 2rem;
   align-items: baseline;
 }
@@ -36,7 +36,6 @@ const baseCardClass = computed(() => props.hasImage ? 'grid' : '')
 
   .baseCard__image {
     width: 100%;
-    aspect-ratio: 1 / 1;
   }
 
   .baseCard__image:empty {

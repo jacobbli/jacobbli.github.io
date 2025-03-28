@@ -1,9 +1,5 @@
 <script setup>
-import BaseCard from "./base/BaseCard.vue";
-import BaseLink from "@/components/base/BaseLink.vue";
-import GithubIcon from "@/components/icons/GithubIcon.vue";
-import WebAssetIcon from "@/components/icons/WebAssetIcon.vue";
-
+import ProjectItem from "./ProjectItem.vue";
 
 const projects = [{
   "label": "Car Share Trip Calculator",
@@ -63,57 +59,15 @@ const projects = [{
 
 </script>
 <template>
-  <div class="projectList__content">
-    <base-card v-for="project in projects" :key="project.label" :has-image="true">
-      <template #image>
-        <img :src="project.image">
-      </template>
-      <template #content>
-        <div class="projectItem__content">
-          <h3>{{ project.label }}</h3>
-          <p>{{ project.description }}</p>
-          <div class="projectItem__links">
-            <base-link v-if="project.github != ''" label="Github repo" icon="Github" :target="project.github">
-              <template #icon><github-icon /></template>
-            </base-link>
-            <base-link v-if="project.app != ''" label="App" icon="App" :target="project.app">
-              <template #icon><web-asset-icon /></template>
-            </base-link>
-          </div>
-        </div>
-      </template>
-    </base-card>
+  <div class="projectList__container">
+    <project-item v-for="project in projects" :key="project.label" :project="project" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.projectList__content {
+.projectList__container {
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
-
-.projectItem__content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.projectItem__links {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-}
-
-
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: top;
-  border-radius: 10px;
-  border: 1px solid var(--primary-grey-80);
-}
-
-@media only screen and (min-width: 768px) {}
 </style>

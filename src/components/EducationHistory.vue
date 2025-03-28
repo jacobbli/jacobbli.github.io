@@ -1,7 +1,6 @@
 <script setup>
-import BaseCard from './base/BaseCard.vue';
+import EducationItem from './EducationItem.vue';
 
-const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const educationHistory = [
   {
     "startDate": "2018-09-4",
@@ -22,44 +21,17 @@ const educationHistory = [
   }
 ]
 
-function getShortDate(date) {
-  const thisDate = new Date(date)
-  return `${MONTH_NAMES[thisDate.getMonth()]} ${thisDate.getFullYear()}`
-}
 </script>
 <template>
   <div class="educationHistory__content">
-    <base-card v-for="education in educationHistory" :key="education.degree" :has-image="true">
-    <template #image>
-      <img :src="education.image" />
-    </template>
-      <template #content>
-        <h3>{{ education.degree }}</h3>
-        <div class="educationHistory__details">
-          <p>{{ education.school }}</p>
-          <p>{{ getShortDate(education.startDate) }} - {{ getShortDate(education.endDate) }}</p>
-        </div>
-      </template>
-    </base-card>
+    <education-item v-for="education in educationHistory" :key="education.degree" :education="education" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.educationHistory__content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  .educationHistory__details {
-    font-size: 0.9rem;
-    font-style: italic;
+  .educationHistory__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
-}
-
-img {
-  width: 70%;
-  object-fit: contain;
-  object-position: top;
-  border: 1px solid var(--primary-grey-80);
-}
 </style>
