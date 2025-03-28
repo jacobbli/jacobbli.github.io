@@ -1,9 +1,7 @@
 <script setup>
-import BaseCard from './base/BaseCard.vue';
-import BaseSection from './base/BaseSection.vue';
-import { getShortDate } from '@/helper/date';
+import WorkHistoryListItem from './WorkHistoryListItem.vue';
 
-const employmentHistory = [
+const workHistory = [
   {
     "startDate": "2015-04-02",
     "endDate": "2020-01-25",
@@ -58,30 +56,15 @@ const employmentHistory = [
 
 </script>
 <template>
-  <base-section title="Work History">
-    <div class="workHistory__content">
-      <base-card v-for="job in employmentHistory" :key="job.startDate">
-        <template #content>
-          <h3>{{ job.title }}</h3>
-          <div class="workHistory__details">
-            <p>{{ job.organization }}</p>
-            <p>{{ getShortDate(job.startDate) }} - {{ getShortDate(job.endDate) }}</p>
-          </div>
-        </template>
-      </base-card>
-    </div>
-  </base-section>
+  <div class="workHistoryList__container">
+    <work-history-list-item v-for="job in workHistory" :key="job.startDate" :job="job" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.workHistory__content {
+.workHistoryList__container {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-
-  .workHistory__details {
-    font-size: 0.9rem;
-    font-style: italic;
-  }
+  gap: 2rem;
 }
 </style>

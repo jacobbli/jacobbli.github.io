@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import TheHeader from '@/components/TheHeader.vue';
 import WorkHistory from '@/components/WorkHistory.vue';
+import WorkHistoryList from "./components/WorkHistoryList.vue";
 import ContactDetails from '@/components/ContactDetails.vue';
 import EducationHistory from '@/components/EducationHistory.vue';
 import ProjectList from "./components/ProjectList.vue";
@@ -31,7 +32,8 @@ onMounted(() => {
     </base-section>
     <base-divider />
     <base-section title="Work Experience">
-      <work-history />
+      <work-history-list v-if="isMobile" />
+      <work-history v-else />
     </base-section>
     <base-divider />
     <base-section title="Education">
