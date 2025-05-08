@@ -19,10 +19,5 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
-  h1 {
-  font-weight: bold;
-  font-size: 3rem;
-}
 }
 </style>

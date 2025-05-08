@@ -22,9 +22,5 @@ defineProps({
   display: flex;
   flex-direction: column;
   gap: 2rem;
-
-  h2 {
-    font-size: 3rem
-  }
 }
 </style>
