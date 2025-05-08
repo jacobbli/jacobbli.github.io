@@ -29,7 +29,7 @@ const contactInfo = [{
 <template>
   <div class="contactDetailsView__content">
     <div v-for="item in contactInfo" :key="item.content">
-      <base-link :label="item.content" :target="item.href" :icon="item.type">
+      <base-link :target="item.href" :icon="item.type">
         <template #icon>
           <component :is="item.icon" />
         </template>
@@ -42,7 +42,7 @@ const contactInfo = [{
 <style lang="scss" scoped>
 .contactDetailsView__content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 4px;
 }
 </style>

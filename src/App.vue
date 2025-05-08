@@ -25,7 +25,9 @@ onMounted(() => {
       <contact-details />
     </div>
   </header>
-
+  <div class="app__verticalDivider">
+    <base-divider :is-vertical="true" />
+  </div>
   <main>
     <base-section title="Projects">
       <project-list />
@@ -65,6 +67,10 @@ onMounted(() => {
     }
   }
 
+  .app__verticalDivider {
+    display: none
+  }
+
   main {
     display: flex;
     flex-direction: column;
@@ -75,22 +81,36 @@ onMounted(() => {
 
 @media only screen and (min-width: 768px) {
   #app {
-    padding: 4rem 3rem 0 3rem;
+    padding: 0 3rem;
 
     display: grid;
-    grid-template-columns: 40% auto;
-    gap: 50px;
+    grid-template-columns: 40% 1px auto;
+    gap: 2.5rem;
 
     header {
-      padding: 0 4rem;
+      padding: 4rem;
       display: flex;
       flex-direction: column;
+      justify-content:space-between;
       gap: 2rem;
 
-      height: calc(100vh - 4rem);
+      height: 100vh;
       position: sticky;
-      top: 4rem;
+      top: 0;
     }
+
+    .app__verticalDivider {
+      display: flex;
+
+      height: 100vh;
+      position: sticky;
+      top: 0;
+    }
+
+    main {
+      padding: 4rem;
+    }
+
   }
 }
 </style>

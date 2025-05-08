@@ -8,7 +8,7 @@ defineProps({
   },
   label: {
     type: String,
-    required: true,
+    default: '',
   },
   newTab: {
     type: Boolean,
@@ -18,13 +18,10 @@ defineProps({
 </script>
 
 <template>
-  <div class="baseLink">
-    <slot name="icon"></slot>
-    <a :target="newTab ? '_blank' : '_self'" :href="target">
-      <div>{{ label }}</div>
+    <a class="baseLink" :target="newTab ? '_blank' : '_self'" :href="target" :title="target">
+      <slot name="icon"></slot>
+      <div v-if="label.length > 0">{{ label }}</div>
     </a>
-
-  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -38,12 +35,9 @@ defineProps({
 
   color: var(--link-colour);
   transition: background-color 0.5s, color 0.5s;
-  cursor: pointer;
+  text-decoration: none;
 
-  a {
-    text-decoration: none;
-    color: var(--link-colour);
-  }
+  cursor: pointer;
 
   &:hover {
     background-color: var(--link-hover-background-colour);
