@@ -79,19 +79,18 @@ onMounted(() => {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 900px) {
   #app {
     padding: 0 3rem;
 
     display: grid;
-    grid-template-columns: 40% 1px auto;
+    grid-template-columns: 24% 1px auto;
     gap: 2.5rem;
 
     header {
       padding: 4rem;
       display: flex;
       flex-direction: column;
-      justify-content:space-between;
       gap: 2rem;
 
       height: 100vh;

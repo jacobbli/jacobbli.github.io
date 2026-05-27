@@ -5,8 +5,8 @@ import LinkedinIcon from "@/components/icons/LinkedinIcon.vue";
 import EmailIcon from "@/components/icons/EmailIcon.vue";
 
 const contactInfo = [{
-  content: "hello@jacobli.ca",
-  href: "mailto:hello@jacobli.ca",
+  content: "dev@jakehub.ca",
+  href: "mailto:dev@jakehub.ca",
   type: "Email",
   icon: EmailIcon
 },
@@ -29,7 +29,7 @@ const contactInfo = [{
 <template>
   <div class="contactDetailsView__content">
     <div v-for="item in contactInfo" :key="item.content">
-      <base-link :target="item.href" :icon="item.type">
+      <base-link :target="item.href" :icon="item.type" :label="item.content">
         <template #icon>
           <component :is="item.icon" />
         </template>
@@ -42,7 +42,7 @@ const contactInfo = [{
 <style lang="scss" scoped>
 .contactDetailsView__content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 4px;
 }
 </style>
