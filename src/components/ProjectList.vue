@@ -4,7 +4,7 @@ import ProjectItem from "./ProjectItem.vue";
 const projects = [{
   "label": "Car Share Trip Calculator",
   "github": "https://github.com/jacobbli/trip-cost-calculator-app",
-  "app": "https://www.jacobli.ca/trip-cost-calculator-app",
+  "app": "https://www.jakehub.ca/car-share-cost-calculator",
   "image": "./assets/trip-cost-calculator.png",
   "description": 'A web app for calculating the cost of a trip using a certain car share service.',
   "skills": [
