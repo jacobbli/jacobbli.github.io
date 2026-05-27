@@ -1,7 +1,7 @@
 <template>
   <div class="theHeader">
     <h1>
-    Jacob Li
+    Jakehub
     </h1>
   </div>
 </template>

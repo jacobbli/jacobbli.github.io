@@ -1,7 +1,7 @@
 <script setup>
 import BaseLink from "@/components/base/BaseLink.vue";
 import GithubIcon from "@/components/icons/GithubIcon.vue";
-import LinkedinIcon from "@/components/icons/LinkedinIcon.vue";
+// import LinkedinIcon from "@/components/icons/LinkedinIcon.vue";
 import EmailIcon from "@/components/icons/EmailIcon.vue";
 
 const contactInfo = [{
@@ -17,13 +17,12 @@ const contactInfo = [{
   icon: GithubIcon
 
 },
-{
-  content: "jacobbli",
-  href: "https://linkedin.com/in/jacobbli/",
-  type: "LinkedIn",
-  icon: LinkedinIcon
-
-}
+// {
+//   content: "jacobbli",
+//   href: "https://linkedin.com/in/jacobbli/",
+//   type: "LinkedIn",
+//   icon: LinkedinIcon
+// }
 ]
 </script>
 <template>
